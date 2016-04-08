@@ -56,7 +56,6 @@
   z-index: 3; /* above title */
 }
 .subject-table {
-  display: block;
   width: 100%; /* makes table take up all of subjects div */
   height: 100%; /* makes table take up all of subjects div */
 }
