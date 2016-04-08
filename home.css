@@ -1,30 +1,30 @@
 #content {
-  margin: auto;
+  margin: auto; /* center */
 }
 
 #title {
   position: relative;
-  font-family: 'Oxygen', sans-serif;
+  font-family: 'Oxygen', sans-serif; /* imported via Google Fonts */
   font-size: 3em;
   font-weight: 300;
   letter-spacing: 3px;
-  top: 30px;
-  padding: 10px
+  top: 30px; /* distance from the top, NOT relative to menu bar, could be reworked */
+  padding: 10px; /* to make space between title and title-line */
 }
 #title-line {
   position: relative;
-  margin-left: 20%;
-  margin-right: 20%;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); /* w3 schools */
-
+  margin-left: 30%; /* change these to change width */
+  margin-right: 30%; /* change these to change width */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); /* copied from w3 schools */
 }
+
 #group-table {
   position: relative;
   margin: auto;
   top: 40px; /* space from menu bar, could be improved */
 }
 #group-table td {
-  padding: 20px;
+  padding: 20px; /* space between groups, don't really understand how to adjust */
 }
 
 .group {
@@ -57,8 +57,8 @@
 }
 .subject-table {
   display: block;
-  width: 100%;
-  height: 100%;
+  width: 100%; /* makes table take up all of subjects div */
+  height: 100%; /* makes table take up all of subjects div */
 }
 
 .subject-table td {
@@ -68,20 +68,8 @@
   width: 50%; /* make all td boxes equal in size */
   height: 50%; /* make all td boxes equal in size */
   background-color: lightgray;
-  cursor: pointer;
+  cursor: pointer; /* changes cursor to hand, looks like link */
 }
 .subject-table td:hover {
   background-color: gray;
-}
-
-#group-circle {
-  position: relative;
-  margin: auto;
-  top: 70px;
-  width: 500px;
-  height: 500px;
-  -webkit-border-radius: 100%;
-  -moz-border-radius: 100%;
-  border-radius: 100%;
-  border: red 10px solid;
 }
