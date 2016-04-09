@@ -3,13 +3,12 @@
 }
 
 #title {
-  position: relative;
   font-family: 'Oxygen', sans-serif;
   font-size: 3em;
   font-weight: 300;
   letter-spacing: 3px;
   top: 30px;
-  padding: 10px
+  padding: 10px;
 }
 #title-line {
   position: relative;
