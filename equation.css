@@ -1,3 +1,13 @@
+/* content style */
+
+#content {
+  position: relative;
+  top: 40px;
+  margin-left: 220px; /* needs to be adjusted with sidebar */
+  z-index: 1;
+}
+
+
 /* sidebar style */
 
 #sidebar {

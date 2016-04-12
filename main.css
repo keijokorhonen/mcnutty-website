@@ -5,15 +5,7 @@ html {
   text-align: center;
   font-family:'Source Sans Pro', sans-serif;
   }
-  /* content style */
 
-  #content {
-    position: relative;
-    top: 40px;
-    margin-left: 220px; /* needs to be adjusted with sidebar */
-    z-index: 1;
-    }
-    
 /* header style */
 
 #header {
@@ -22,11 +14,13 @@ html {
   left: 0px;
   top: 0px;
   right: 0px;
-  border-bottom: 1px solid gray;
   z-index: 3;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); /* w3 schools */
   font-family:'Oxygen', sans-serif;
   }
+#menu {
+  border-bottom: 1px solid gray;
+}
 .menu-bar {
   text-align: center;
   }
