@@ -72,15 +72,3 @@
 .subject-table td:hover {
   background-color: gray;
 }
-
-#group-circle {
-  position: relative;
-  margin: auto;
-  top: 70px;
-  width: 500px;
-  height: 500px;
-  -webkit-border-radius: 100%;
-  -moz-border-radius: 100%;
-  border-radius: 100%;
-  border: red 10px solid;
-}
