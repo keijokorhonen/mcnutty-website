@@ -4,12 +4,13 @@
 
 #title {
   position: relative;
+  display: block;
   font-family: 'Oxygen', sans-serif; /* imported via Google Fonts */
   font-size: 3em;
   font-weight: 300;
   letter-spacing: 3px;
   top: 30px; /* distance from the top, NOT relative to menu bar, could be reworked */
-  padding: 10px; /* to make space between title and title-line */
+  padding: 30px; /* to make space between title and title-line */
 }
 #title-line {
   position: relative;
