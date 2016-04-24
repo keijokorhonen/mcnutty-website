@@ -10,5 +10,4 @@ var main = function() { // js running on page
 };
 
 
-
 $(document).ready(main); // loads the jquery

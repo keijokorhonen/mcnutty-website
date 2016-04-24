@@ -1,0 +1,9 @@
+#assessment-chart {
+  height: 400px;
+  width: 600px;
+  display: inline-block;
+}
+#assessment-info {
+  display: inline;
+  text-align: left;
+}

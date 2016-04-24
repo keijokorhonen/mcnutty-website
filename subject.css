@@ -1,41 +1,55 @@
 #content {
   position: relative;
-  top: 300px; /* change distance from header */
+  top: 250px; /* change distance from header */
   z-index: 1;
   margin-left: 10%; /* for white space on sides */
   margin-right: 10%; /* for white space on sides */
 }
 
+
 /* title style */
 #title-bar {
   width: 100%;
-  height: 180px;
+  height: 120px;
   background-color: #7ED1ED;
   border-bottom: 1px solid gray;
+
 }
 
-#title {
+.title-icon {
   position: relative;
-  display: block;
-  margin: auto;
+  display: inline;
+  padding: 0px 30px 0px 30px;
+  height: 60px;
+  top: 50%;
+  transform: translateY(-50%); /* to center the title in the box */
+
+}
+
+
+#title {
+  position: relative;;
+  display: inline-block;
+  padding: 0px 100px 0px 100px;
   font-family:'Source Sans Pro', sans-serif;
   letter-spacing: 3px;
   font-size: 3em;
   color: white;
   text-align: center; /* bad way of centering text */
-  width: 100%; /* bad way of centering text */
-  top: 50%; /* to center the title in the box */
+  top: 50%;
   transform: translateY(-50%); /* to center the title in the box */
 }
 
 #title-menu {
   position: relative;
+  padding: 10px 20px 10px 20px;
   margin: auto;
 
 }
 
 .title-menu-item {
-  padding: 10px 20px 10px 20px;
+  display: inline;
+  padding: 5px 20px 5px 20px;
   font-size: 1.1em;
   border-bottom: 5px solid transparent; /* transparent border to leave space for underline */
 }
@@ -53,7 +67,9 @@
   color:#7ED1ED;
 }
 
+
 /*content style */
+
 #chapter-table {
   margin: auto;
 }
