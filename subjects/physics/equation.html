@@ -2,24 +2,27 @@
 <html>
 	<head>
 		<title> Equation Test </title> <!-- tab title -->
-		<link rel="stylesheet" type="text/css" href="main.css"> <!-- main stylesheet -->
+		<link rel="stylesheet" type="text/css" href="../../css/main.css"> <!-- main stylesheet, includes header -->
+		<link rel="stylesheet" type="text/css" href="../../css/equation.css"> <!-- equation stylesheet, includes sidebar -->
 		<link href='https://fonts.googleapis.com/css?family=Oxygen|Source+Sans+Pro' rel='stylesheet' type='text/css'> <!-- imports Google Fonts -->
 		<script type="text/javascript" async
-  		src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  			src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 		</script> <!-- LaTeX formatting script called MathJax -->
 		<script type="text/x-mathjax-config">
-  		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\[','\]'], ['\\(','\\)']]}});
+  			MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\[','\]'], ['\\(','\\)']]}});
 		</script> <!-- config for MathJax, inlineMath has defined identifiers for eqautions -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"> </script> <!-- CDN jqeury source -->
-		<script src="equation.js"> </script> <!-- js for equation hover explainer -->
-		<script src="sidebar.js"> </script> <!-- js for expandable sidebar -->
+		<script src="../../js/equationHover.js"> </script> <!-- js for equation hover explainer -->
+		<script src="../../js/sidebar.js"> </script> <!-- js for expandable sidebar -->
+
+		<script src="../../js/equationTable.js"> </script> <!-- js for creating a searchable table for equations -->
 	</head>
 	<body>
 		<div class = "container">
 			<div id = "header"> <!-- page header, should be the same across all pages -->
 				<table class="menu-bar"> <!-- table to make row of menu items -->
 					<tr>
-            <td class="menu-item menu-home"> <a href="home.html"> IB MASTERS </a> </td> <!-- also a similar mess, and should link to home -->
+            			<td class="menu-item menu-home"> <a href="../../index.html"> IB MASTERS </a> </td> <!-- also a similar mess, and should link to home -->
 						<td class="menu-item"> <a href="#"> NEWS </a> </td> <!-- filler item -->
 						<td class="menu-item"> <a href="#"> SCHEDULE </a> </td> <!-- filler item -->
 						<td class="menu-item menu-end"> <a href="#"> CONTACT </a> </td> <!-- filler item, class menu-end removes the right border used as a divider -->
@@ -49,59 +52,19 @@
 				<h1 class="title"> Physics equations </h1> <!-- title of page, ugly -->
 				<p class="quote"> People don't think the universe be like it is, but it do. - Black Science Man </p> <!-- beautiful quote -->
 				<h3 class="section-title"> Mechanics </h3> <!-- section title, ugly -->
-				<table class="equation-table"> <!-- table to organize equations, might be better inline with text explaining -->
-					<tr id = "velocity">
-						<td> Velocity  </td>
-						<td class="equation">  <!-- equation split up for hover effect, jquery toggles e-dropdown on hover -->
-							<div class="e-hover"> \(v\) <!-- e.g. this is just v, but as a whole equation object to allow for individual hover -->
-								<div class="e-dropdown"> Velocity
-								</div>
-							</div>
-							\(=\) <!-- individual = sign -->
-							<div class="e-hover"> \(u\)
-								<div class="e-dropdown"> Initial Velocity
-								</div>
-							</div>
-							 \(+\)
-							<div class="e-hover"> \(a\)
- 								<div class="e-dropdown"> Acceleration
- 								</div>
- 							</div>
-							<div class="e-hover"> \(t^2\)
-							 <div class="e-dropdown"> Time
-							 </div>
-						 	</div>
-						</td>
-					</tr>
-					<tr id = "displacement">
-						<td> Displacement </td>
-						<td class="equation">
-							<div class="e-hover"> \(s\)
-							 <div class="e-dropdown"> Displacement
-							 </div>
-						 	</div>
-							\(=\)
-							<div class="e-hover"> \(u\)
-							 <div class="e-dropdown"> Initial Velocity
-							 </div>
-						 	</div>
-						 	<div class="e-hover"> \(t\)
-								<div class="e-dropdown"> Time
-								</div>
-						 	</div>
-						 	\(+\)
-						 	<div class="e-hover"> \(a\)
-						 		<div class="e-dropdown"> Acceleration
-						 		</div>
-							</div>
-							<div class="e-hover"> \(t^{2}\)
-						 		<div class="e-dropdown"> Time
-						 		</div>
-							</div>
-						</td>
-					</tr>
-				</table>
+
+				<input id="input_Equation" type="text"/> <!-- search for equation -->
+				<button onclick="searchEquations()">Search for variable</button> <!-- press when done typing, will try to make enter search -->
+
+				<div id="divTable" class="equation-table"> <!-- Table to organize equations created through js file, might be better inline with text explaining -->
+					<!-- Keep this space here. For some reason this doesn't fucking work otherwise... -->
+				</div> <!-- also  -->
+
 			</div>
 		</div>
+
+		<script>
+			defaultTable();
+		</script>
 	</body>
 </html>
