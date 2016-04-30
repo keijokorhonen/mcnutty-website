@@ -6,6 +6,17 @@
   margin-right: 10%; /* for white space on sides */
 }
 
+#chapters {
+
+}
+
+#assessments {
+  display: none; /* hidden on page load */
+}
+
+#syllabus {
+  display: none; /* hidden on page load */
+}
 
 /* title style */
 #title-bar {
@@ -20,7 +31,7 @@
   position: relative;
   display: inline;
   padding: 0px 30px 0px 30px;
-  height: 60px;
+  max-height:50%; /* scale with div */
   top: 50%;
   transform: translateY(-50%); /* to center the title in the box */
 
@@ -52,6 +63,7 @@
   padding: 5px 20px 5px 20px;
   font-size: 1.1em;
   border-bottom: 5px solid transparent; /* transparent border to leave space for underline */
+  cursor: pointer;
 }
 
 .title-menu-item a {
