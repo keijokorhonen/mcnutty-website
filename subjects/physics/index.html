@@ -5,10 +5,14 @@
     <title> IB Home </title>
     <link rel="stylesheet" type="text/css" href="../../css/main.css"> <!-- main stylesheet -->
     <link rel="stylesheet" type="text/css" href="../../css/subject.css"> <!-- home stylesheet -->
+    <link rel="stylesheet" type="text/css" href="../../css/assessments.css"> <!-- home stylesheet -->
     <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300|Source+Sans+Pro' rel='stylesheet' type='text/css'> <!-- used Google Fonts to import fonts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"> </script> <!-- CDN jqeury source -->
     <script src="../../js/subject.js"> </script>
     <script src="../../js/assessments.js"> </script>
+    <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/flot/0.8.3/jquery.flot.js"></script> <!-- CDN for flot, makes the pie charts -->
+    <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/flot/0.8.3/jquery.flot.pie.min.js"></script> <!-- CDN for flot, makes the pie charts -->
+  </head>
   </head>
   <body>
     <div class = "container">
@@ -35,13 +39,13 @@
           <img class = "title-icon" src ="../../img/physics_img/power.png">
         </div>
         <div id = "title-menu">
-            <div class = "title-menu-item title-menu-item-selected"> <a href = "index.html"> Chapters </a> </div>
-            <div class = "title-menu-item"> <a href = "#"> Syllabus </a> </div>
-            <div class = "title-menu-item"> <a href = "assessments.html"> Assessments </a> </div>
+            <div id = "menu-chapters" class = "title-menu-item title-menu-item-selected">  Chapters </a> </div>
+            <div id = "menu-syllabus" class = "title-menu-item">  Syllabus </a> </div>
+            <div id = "menu-assessments" class = "title-menu-item">  Assessments </a> </div>
         </div>
       </div>
       <div id = "content">
-        <div id = "chapters">
+        <div id = "chapters"> <!-- toggled with subject.js when click on menu item -->
           <table id = "chapter-table">
             <tr>
               <td class = "chapter">
@@ -137,6 +141,62 @@
               </td>
             </tr>
           </table>
+        </div>
+        <div id = "assessments">  <!-- toggled with subject.js when click on menu item -->
+          <div id = "assessment-chart"> </div>
+          <div id = "assessment-info">
+            <h1> Paper 1 </h1> <!-- format -->
+            <div class = "basic-info">
+              Duration: 1 hour <br>
+              Weighting: 20% <br>
+              Marks: 40 <br>
+            </div>
+            <ul class ="assessment-details">
+              <li> 40 multiple-choice questions on core and AHL, about 15 of which are common with SL. </li>
+              <li> The questions on paper 1 test assessment objectives 1, 2 and 3.</li>
+              <li> The use of calculators is not permitted.</li>
+              <li> No marks are deducted for incorrect answers.</li>
+              <li> A physics data booklet is provided.</li>
+            </ul>
+            <h1> Paper 2 </h1>
+            <div class = "basic-info">
+              Duration: 2¼ hours <br>
+              Weighting: 36% <br>
+              Marks: 95 <br>
+            </div>
+            <ul>
+              <li> Short-answer and extended-response questions on the core and AHL material.</li>
+              <li> The questions on paper 2 test assessment objectives 1, 2 and 3.</li>
+              <li> The use of calculators is permitted. (See calculator section on the OCC.)</li>
+              <li> A physics data booklet is provided.</li>
+            </ul>
+            <h1> Paper 3 </h1>
+            <div class = "basic-info">
+              Duration: 1¼ hours <br>
+              Weighting: 24% <br>
+              Marks: 45 <br>
+            </div>
+            <ul>
+              <li> This paper will have questions on core, AHL and option material.</li>
+              <li> Section A: one data-based question and several short-answer questions on experimental work.</li>
+              <li> Section B: short-answer and extended-response questions from one option.</li>
+              <li> The questions on paper 3 test assessment objectives 1, 2 and 3.</li>
+              <li> The use of calculators is permitted. (See calculator section on the OCC.)</li>
+              <li> A physics data booklet is provided.</li>
+            </ul>
+          </div>
+        </div>
+        <div id = "syllabus">
+          <ul> <!-- filler content -->
+            <li> Measurements and uncertainties </li>
+            <li> Mechanics </li>
+            <li> Thermal physics </li>
+            <li> Waves </li>
+            <li> Electricity and magnetism </li>
+            <li> Circular motion and gravitation </li>
+            <li> Atomic, nuclear and particle physics </li>
+            <li> Energy production </li>  
+          </ul>
         </div>
       </div>
     </div>
