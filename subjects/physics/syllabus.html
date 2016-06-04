@@ -1,0 +1,112 @@
+<html>
+  <head>
+    <title> Assessments </title>
+    <link rel="stylesheet" type="text/css" href="../../css/main.css"> <!-- main stylesheet -->
+    <link rel="stylesheet" type="text/css" href="../../css/syllabus.css"> <!-- syllabus stylesheet -->
+    <link rel="stylesheet" type="text/css" href="../../css/subject.css"> <!-- home stylesheet -->
+    <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300|Source+Sans+Pro' rel='stylesheet' type='text/css'> <!-- used Google Fonts to import fonts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"> </script> <!-- CDN jqeury source -->
+    <script src="../../js/assessments.js"> </script>
+    <script src="../../js/subject.js"> </script>
+    <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/flot/0.8.3/jquery.flot.js"></script>
+    <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/flot/0.8.3/jquery.flot.pie.min.js"></script>
+  </head>
+  <body>
+		<div class = "container">
+      <div id = "header"> <!-- page header, should be the same across all pages NOTE subject page include subject title in header-->
+        <div id = "menu">
+          <table class="menu-bar"> <!-- table to make row of menu items -->
+            <tr>
+              <td class="menu-item menu-home"> <a href="../../index.html"> IB MASTERS </a> </td> <!-- also a similar mess, and should link to home -->
+              <td class="menu-item"> <a href="#"> NEWS </a> </td> <!-- filler item -->
+              <td class="menu-item"> <a href="#"> SCHEDULE </a> </td> <!-- filler item -->
+              <td class="menu-item menu-end"> <a href="#"> CONTACT </a> </td> <!-- filler item, class menu-end removes the right border used as a divider -->
+            </tr>
+          </table>
+        </div>
+        <div id = "title-bar">
+          <img class = "title-icon" src ="../../img/physics_img/ruler.png">
+          <img class = "title-icon" src ="../../img/physics_img/newton.png">
+          <img class = "title-icon" src ="../../img/physics_img/flame.png">
+          <img class = "title-icon" src ="../../img/physics_img/wave.png">
+          <span id = "title"> Physics </span>
+          <img class = "title-icon" src ="../../img/physics_img/magnet.png">
+          <img class = "title-icon" src ="../../img/physics_img/orbit.png">
+          <img class = "title-icon" src ="../../img/physics_img/atom.png">
+          <img class = "title-icon" src ="../../img/physics_img/power.png">
+        </div>
+        <div id = "title-menu">
+            <a href = "index.html"> <div id = "menu-chapters" class = "title-menu-item">  Chapters </a> </div>
+            <a href = "syllabus.html"> <div id = "menu-syllabus" class = "title-menu-item title-menu-item-selected">  Syllabus </a> </div>
+            <a href = "assessments.html"> <div id = "menu-assessments" class = "title-menu-item">  Assessments </a> </div>
+        </div>
+      </div>
+      <div id = "content">
+        <div id = "syllabus-table-div">
+          <table id = "syllabus-table" class="tg">
+            <tr>
+              <th class="tg-yw4l"></th>
+              <th class="tg-amwm">Recommended teaching hours</th>
+            </tr>
+            <tr>
+              <td class="tg-9hbo">Core</td>
+              <td class="tg-amwm">95 hours</td>
+            </tr>
+            <tr>
+              <td class="tg-yw4l">Topic 1: Measurements and uncertainties <br>1.1 - Measurements in physics<br>1.2 - Uncertainties and errors<br>1.3 - Vectors and scalars</td>
+              <td class="tg-baqh">5</td>
+            </tr>
+            <tr>
+              <td class="tg-yw4l">Topic 2: Mechanics <br>2.1 - Motion<br>2.2 - Forces<br>2.3 - Work, energy, and power<br>2.4 - Momentum and impulse</td>
+              <td class="tg-baqh">22</td>
+            </tr>
+            <tr>
+              <td class="tg-yw4l">Topic 3: Thermal physics <br>3.1 - Thermal concepts<br>3.2 - Modelling a gas</td>
+              <td class="tg-baqh">11</td>
+            </tr>
+            <tr>
+              <td class="tg-yw4l">Topic 4: Waves <br>4.1 - Oscillations<br>4.2 - Travelling waves<br>4.3 - Wave characteristics<br>4.4 - Wave behaviour<br>4.5 - Standing waves</td>
+              <td class="tg-baqh">15</td>
+            </tr>
+            <tr>
+              <td class="tg-yw4l">Topic 5: Electricity and magnetism <br>5.1 - Electric fields<br>5.2 - Heating effect of electric currents<br>5.3 - Electric cells<br>5.4 - Magnetic effects of electric currents</td>
+              <td class="tg-baqh">15</td>
+            </tr>
+            <tr>
+              <td class="tg-yw4l">Topic 6: Circular motion and gravitation <br>6.1 - Circular motion<br>6.2 - Newton’s law of gravitation</td>
+              <td class="tg-baqh">5</td>
+            </tr>
+            <tr>
+              <td class="tg-yw4l">Topic 7: Atomic, nuclear and particle physics<br>7.1 - Discrete energy and radioactivity<br>7.2 - Nuclear reactions<br>7.3 - The structure of matter</td>
+              <td class="tg-baqh">14</td>
+            </tr>
+            <tr>
+              <td class="tg-yw4l">Topic 8: Energy production<br>8.1 - Energy sources<br>8.2 - Thermal energy transfer</td>
+              <td class="tg-baqh"></td>
+            </tr>
+            <tr>
+              <td class="tg-9hbo">Additional higher level (AHL)</td>
+              <td class="tg-amwm">60 hours</td>
+            </tr>
+            <tr>
+              <td class="tg-yw4l">Topic 9: Wave phenomena <br>9.1 - Simple harmonic motion<br>9.2 - Single-slit diffraction<br>9.3 - Interference<br>9.4 - Resolution<br>9.5 - Doppler effect</td>
+              <td class="tg-baqh">17</td>
+            </tr>
+            <tr>
+              <td class="tg-yw4l">Topic 10: Fields<br>10.1 - Describing fields<br>10.2 - Fields at work</td>
+              <td class="tg-baqh">11</td>
+            </tr>
+            <tr>
+              <td class="tg-yw4l">Topic 11: Electromagnetic induction<br>11.1 - Electromagnetic induction<br>11.2 - Power generation and transmission<br>11.3 - Capacitance</td>
+              <td class="tg-baqh">16</td>
+            </tr>
+            <tr>
+              <td class="tg-yw4l">Topic 12: Quantum and nuclear physics<br>12.1 - The interaction of matter with radiation<br>12.2 - Nuclear physics</td>
+              <td class="tg-baqh">16</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
