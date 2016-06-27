@@ -6,18 +6,6 @@
   margin-right: 10%; /* for white space on sides */
 }
 
-#chapters {
-
-}
-
-#assessments {
-  display: none; /* hidden on page load */
-}
-
-#syllabus {
-  display: none; /* hidden on page load */
-}
-
 /* title style */
 #title-bar {
   width: 100%;
@@ -39,7 +27,7 @@
 
 
 #title {
-  position: relative;;
+  position: relative;
   display: inline-block;
   padding: 0px 100px 0px 100px;
   font-family:'Source Sans Pro', sans-serif;
@@ -53,6 +41,8 @@
 
 #title-menu {
   position: relative;
+  text-align: center;
+
   padding: 10px 20px 10px 20px;
   margin: auto;
 

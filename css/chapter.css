@@ -1,0 +1,68 @@
+#content {
+  position: relative;
+  margin-left: 230px; /* change with sidebar? */
+  margin-right: 10%;
+  margin-top: 80px;
+
+}
+
+#chapter-title {
+  text-align: center;
+  font-family:'Source Sans Pro', sans-serif;
+  font-size: 3em;
+  letter-spacing: 0.1em;
+  margin: 10px;
+}
+
+#title-line {
+  position: relative;
+  margin-left: 30%; /* change these to change width */
+  margin-right: 30%; /* change these to change width */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); /* copied from w3 schools */
+}
+
+#info {
+  text-align: left;
+  margin-left: 20px;
+
+}
+
+h2 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-decoration: underline;
+  letter-spacing: 0.05em;
+
+}
+
+#info p{
+  font-family: sans-serif;
+
+}
+
+.chapter-intro ul{
+  font-size: 1.1em;
+}
+
+.chapter-intro ul li{
+  padding: 3px;
+}
+
+.chapter-intro ul li a{
+  padding: 3px;
+  text-decoration: none;
+  color: black;
+}
+
+
+
+.chapter-intro ul li:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
+.sub-chapter {
+  padding-left: 5px;
+  background-color: #F8F8F8;
+  border: 2px solid lightgray;
+  margin-bottom: 30px;
+}

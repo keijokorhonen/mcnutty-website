@@ -4,6 +4,7 @@
 
 #title {
   position: relative;
+  text-align: center;
   display: block;
   font-family: 'Oxygen', sans-serif; /* imported via Google Fonts */
   font-size: 3em;
