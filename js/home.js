@@ -1,10 +1,9 @@
 // JS for home page
 
 var main = function() { // js running on page
-  // home js
   $('.group').hover(function() {
-    $(this).children('.group-title').fadeToggle(200); // toggle group title, 200ms
-    $(this).children('.subjects').fadeToggle(200); //toggle subjects, 200ms
+    $(this).children('.top-content').fadeToggle(200); // toggle group title, 200ms
+    $(this).children('.hidden-content').fadeToggle(200); //toggle subjects, 200ms
   });
 };
 

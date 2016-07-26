@@ -10,116 +10,168 @@
   <body>
 		<div class = "container">
       <div id = "header"> <!-- page header, should be the same across all pages -->
-				<table class="menu-bar"> <!-- table to make row of menu items --> <!-- could be a list -->
-					<tr>
-            <td class="menu-item menu-home"> <a href="home.html"> IB MASTERS </a> </td> <!-- also a similar mess, and should link to home -->
-						<td class="menu-item"> <a href="#"> NEWS </a> </td> <!-- filler item -->
-						<td class="menu-item"> <a href="#"> SCHEDULE </a> </td> <!-- filler item -->
-						<td class="menu-item menu-end"> <a href="#"> CONTACT </a> </td> <!-- filler item, class menu-end removes the right border used as a divider -->
-					</tr>
-				</table>
-			</div>
+				<div id ="menu-bar"> <!-- could be a list -->
+          <span class="menu-item menu-home"> <a href="index.html"> Home </a> </span> <!-- also a similar mess, and should link to home -->
+					<span class="menu-item"> <a href="#"> News </a> </span> <!-- filler item -->
+					<span class="menu-item"> <a href="#"> Schedule </a> </span> <!-- filler item -->
+					<span class="menu-item menu-end"> <a href="#"> Contact </a> </span> <!-- filler item, class menu-end removes the right border used as a divider -->
+				</div>
+      </div>
       <div id = "content">
-        <span id = "title"> IB MASTERS </span> <!-- title of the page -->
-        <hr id = "title-line"> <!-- line underneath title, does NOT automatically scale with title length -->
+        <span id = "title">IB SHIT</span> <!-- title of the page -->
+        <!-- <hr id = "title-line"> --> <!-- line underneath title, does NOT automatically scale with title length -->
         <table id = "group-table"> <!-- table to organize groups -->
           <tr>
-            <td id = "group1"> <!-- a group box, the id has not purpose currently -->
+            <td id = "group1"> <!-- a group box -->
               <div class = "group"> <!-- using jquery, when hovered group-title is hidden and subjects shown, and vice versa -->
-                <span class = "group-title"> Group 1 </span> <!-- name of the group -->
-                <div class = "subjects"> <!-- div containing the subjects -->
-                  <table class = "subject-table"> <!-- table to organize subjects -->
-                    <tr>
-                      <td onclick ="subjectClick()"> English LL</td> <!-- names of subjects, maybe shouldn't use onclick -->
-                      <td onclick ="subjectClick()"> English L</td>
-                    </tr>
-                    <tr>
-                      <td onclick ="subjectClick()"> Swedish LL </td>
-                      <td onclick ="subjectClick()"> Swedish L </td>
-                    </tr>
-                  </table>
+                <div class = "top-content"> <!-- content displayed on top -->
+                  <span class = "group-title"> Language A </span> <!-- name of the group -->
+                </div>
+                <div class = "hidden-content"> <!-- hidden div containing the subjects, toggled with js -->
+                  <a href = "#">
+                    <div class = "subject a"> <!-- a b c d are to align the 4 subject divs in 4 corners -->
+                      <div class = "subject-title"> English L</div> <!-- name of subject -->
+                    </div>
+                  </a>
+                  <a href ="#">
+                    <div class = "subject b">
+                      <div class = "subject-title"> English LL</div> <!-- name of subject -->
+                    </div>
+                  </a>
+                  <div class = "subject c">
+                    <div class = "subject-title"> Swedish L</div> <!-- name of subject -->
+                  </div>
+                  <div class = "subject d">
+                    <div class = "subject-title"> Swedish LL</div> <!-- name of subject -->
+                  </div>
                 </div>
               </div>
             </td>
             <td id = "group2">
-              <div class = "group">
-                <span class = "group-title"> Group 2 </span>
-                <div class = "subjects">
-                  <table class = "subject-table">
-                    <tr>
-                      <td onclick ="subjectClick()"> English </td> <!-- maybe shouldn't use onclick -->
-                      <td onclick ="subjectClick()"> Swedish </td>
-                    </tr>
-                    <tr>
-                      <td onclick ="subjectClick()"> French </td>
-                      <td onclick ="subjectClick()"> Spanish </td>
-                    </tr>
-                  </table>
+              <div class = "group"> <!-- using jquery, when hovered group-title is hidden and subjects shown, and vice versa -->
+                <div class = "top-content"> <!-- content displayed on top -->
+                  <span class = "group-title"> Language B </span> <!-- name of the group -->
+                </div>
+                <div class = "hidden-content"> <!-- hidden div containing the subjects, toggled with js -->
+                  <a href = "#">
+                    <div class = "subject a"> <!-- a b c d are to align the 4 subject divs in 4 corners -->
+                      <div class = "subject-title"> Swedish</div> <!-- name of subject -->
+                    </div>
+                  </a>
+                  <a href = "#">
+                    <div class = "subject b"> <!-- a b c d are to align the 4 subject divs in 4 corners -->
+                      <div class = "subject-title"> English</div> <!-- name of subject -->
+                    </div>
+                  </a>
+                  <a href = "#">
+                    <div class = "subject c"> <!-- a b c d are to align the 4 subject divs in 4 corners -->
+                      <div class = "subject-title"> Spanish</div> <!-- name of subject -->
+                    </div>
+                  </a>
+                  <a href = "#">
+                    <div class = "subject d"> <!-- a b c d are to align the 4 subject divs in 4 corners -->
+                      <div class = "subject-title"> French</div> <!-- name of subject -->
+                    </div>
+                  </a>
                 </div>
               </div>
             </td>
             <td id = "group3">
-              <div class = "group">
-                <span class = "group-title"> Group 3 </span>
-                <div class = "subjects">
-                  <table class = "subject-table">
-                    <tr>
-                      <td onclick ="subjectClick()"> Economics </td> <!-- maybe shouldn't use onclick -->
-                      <td onclick ="subjectClick()"> Business Management </td>
-                    </tr>
-                    <tr>
-                      <td onclick ="subjectClick()"> Psychology </td>
-                      <td onclick ="subjectClick()"> History  </td>
-                    </tr>
-                  </table>
+              <div class = "group"> <!-- using jquery, when hovered group-title is hidden and subjects shown, and vice versa -->
+                <div class = "top-content"> <!-- content displayed on top -->
+                  <span class = "group-title"> Social Sciences </span> <!-- name of the group -->
+                </div>
+                <div class = "hidden-content"> <!-- hidden div containing the subjects, toggled with js -->
+                  <a href = "#">
+                    <div class = "subject a"> <!-- a b c d are to align the 4 subject divs in 4 corners -->
+                      <div class = "subject-title"> Economics</div> <!-- name of subject -->
+                    </div>
+                  </a>
+                  <a href = "#">
+                    <div class = "subject b"> <!-- a b c d are to align the 4 subject divs in 4 corners -->
+                      <div class = "subject-title"> History</div> <!-- name of subject -->
+                    </div>
+                  </a>
+                  <a href = "#">
+                    <div class = "subject c"> <!-- a b c d are to align the 4 subject divs in 4 corners -->
+                      <div class = "subject-title"> Pyschology</div> <!-- name of subject -->
+                    </div>
+                  </a>
+                  <a href = "#">
+                    <div class = "subject d"> <!-- a b c d are to align the 4 subject divs in 4 corners -->
+                      <div class = "subject-title"> Business Management</div> <!-- name of subject -->
+                    </div>
+                  </a>
                 </div>
               </div>
             </td>
           </tr>
           <tr>
             <td id = "group4">
-              <div class = "group">
-                <span class = "group-title"> Group 4 </span>
-                <div class = "subjects">
-                  <table class = "subject-table">
-                    <tr>
-                      <td> <a href="subjects/physics/index.html" style="text-decoration: none; color: #000000;"> Physics </a> </td> <!-- maybe shouldn't use onclick --> <!--temporary styling -->
-                      <td onclick ="subjectClick()"> Chemistry </td>
-                    </tr>
-                    <tr>
-                      <td onclick ="subjectClick()"> Biology </td>
-                      <td onclick ="subjectClick()"> Environmental Systems </td>
-                    </tr>
-                  </table>
+              <div class = "group"> <!-- using jquery, when hovered group-title is hidden and subjects shown, and vice versa -->
+                <div class = "top-content"> <!-- content displayed on top -->
+                  <span class = "group-title"> Natural Sciences </span> <!-- name of the group -->
+                </div>
+                <div class = "hidden-content"> <!-- hidden div containing the subjects, toggled with js -->
+                  <a href = "#">
+                    <div class = "subject a"> <!-- a b c d are to align the 4 subject divs in 4 corners -->
+                      <div class = "subject-title"> Biology</div> <!-- name of subject -->
+                    </div>
+                  </a>
+                  <a href = "#">
+                    <div class = "subject b"> <!-- a b c d are to align the 4 subject divs in 4 corners -->
+                      <div class = "subject-title"> Chemistry</div> <!-- name of subject -->
+                    </div>
+                  </a>
+                  <a href = "#">
+                    <div class = "subject c"> <!-- a b c d are to align the 4 subject divs in 4 corners -->
+                      <div class = "subject-title"> Physics</div> <!-- name of subject -->
+                    </div>
+                  </a>
+                  <a href = "#">
+                    <div class = "subject d"> <!-- a b c d are to align the 4 subject divs in 4 corners -->
+                      <div class = "subject-title"> Environmental Systems</div> <!-- name of subject -->
+                    </div>
+                  </a>
                 </div>
               </div>
             </td>
             <td id = "group5">
-              <div class = "group">
-                <span class = "group-title"> Group 5 </span>
-                <div class = "subjects">
-                  <table class = "subject-table">
-                    <tr>
-                      <td onclick ="subjectClick()"> Math SL </td> <!-- maybe shouldn't use onclick -->
-                      <td onclick ="subjectClick()"> Math HL </td>
-                    </tr>
-                    <tr>
-                      <td onclick ="subjectClick()"> Math Studies SL </td>
-                      <td onclick ="subjectClick()"> Math BS </td> <!-- for table format -->
-                    </tr>
-                  </table>
+              <div class = "group"> <!-- using jquery, when hovered group-title is hidden and subjects shown, and vice versa -->
+                <div class = "top-content"> <!-- content displayed on top -->
+                  <span class = "group-title"> Mathematics </span> <!-- name of the group -->
+                </div>
+                <div class = "hidden-content"> <!-- hidden div containing the subjects, toggled with js -->
+                  <a href = "#">
+                    <div class = "subject w"> <!-- a b c d are to align the 4 subject divs in 4 corners -->
+                      <div class = "subject-title"> Math SL </div> <!-- name of subject -->
+                    </div>
+                  </a>
+                  <a href = "#">
+                    <div class = "subject c"> <!-- a b c d are to align the 4 subject divs in 4 corners -->
+                      <div class = "subject-title"> Math Studies SL</div> <!-- name of subject -->
+                    </div>
+                  </a>
+                  <a href = "#">
+                    <div class = "subject d"> <!-- a b c d are to align the 4 subject divs in 4 corners -->
+                      <div class = "subject-title"> Math HL</div> <!-- name of subject -->
+                    </div>
+                  </a>
+
                 </div>
               </div>
             </td>
             <td id = "group6">
-              <div class = "group">
-                <span class = "group-title"> Group 6 </span>
-                <div class = "subjects">
-                  <table class = "subject-table">
-                    <tr>
-                      <td onclick ="subjectClick()"> Theatre? </td> <!-- maybe shouldn't use onclick -->
-                    </tr>
-                  </table>
+              <div class = "group"> <!-- using jquery, when hovered group-title is hidden and subjects shown, and vice versa -->
+                <div class = "top-content"> <!-- content displayed on top -->
+                  <span class = "group-title"> Electives </span> <!-- name of the group -->
+                </div>
+                <div class = "hidden-content"> <!-- hidden div containing the subjects, toggled with js -->
+                  <a href = "#">
+                    <div class = "subject t"> <!-- a b c d are to align the 4 subject divs in 4 corners -->
+                      <div class = "subject-title"> Theatre</div> <!-- name of subject -->
+                    </div>
+                  </a>
                 </div>
               </div>
             </td>

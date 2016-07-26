@@ -1,47 +1,73 @@
 #content {
   position: relative;
-  margin-left: 230px; /* change with sidebar? */
-  margin-right: 10%;
-  margin-top: 80px;
+  top: 220px;
 
 }
 
 #chapter-title {
   text-align: center;
-  font-family:'Source Sans Pro', sans-serif;
-  font-size: 3em;
-  letter-spacing: 0.1em;
-  margin: 10px;
+  font-family:'Helvetica', sans-serif;
+  font-size: 4em;
+  color: white;
+  text-shadow: 0 0 5px black;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  top: 40px;
+  transform: translateY(75%);
 }
 
-#title-line {
-  position: relative;
-  margin-left: 30%; /* change these to change width */
-  margin-right: 30%; /* change these to change width */
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); /* copied from w3 schools */
+#title {
+  position: absolute;
+  top: 43px;
+  left: 0px;
+  right: 0px;
+  /*border-bottom: 2px solid black; */
+  height: 185px;
+  z-index: 5;
+  background-image: url('../img/physics_img/chapter/banner4.jpg');
+  background-color: #ffa366;
+
+
 }
+
 
 #info {
   text-align: left;
-  margin-left: 20px;
+  margin-left: 310px; /* change with sidebar? */
+  margin-right: 10%;
+  margin-left:
 
 }
 
 h2 {
   margin-top: 5px;
+  font-family:'Helvetica', sans-serif;
+  font-weight: 400;
+  color: #ff3300;
   margin-bottom: 5px;
-  text-decoration: underline;
   letter-spacing: 0.05em;
 
 }
 
+.sub-title {
+  border-bottom: 1px solid lightgray;
+  cursor: pointer;
+}
+
 #info p{
   font-family: sans-serif;
+  padding: 10px 0px 10px 0px;
 
 }
 
+.chapter-intro{
+  padding-top: 17px;
+}
+
 .chapter-intro ul{
-  font-size: 1.1em;
+  font-size: 1em;
 }
 
 .chapter-intro ul li{
@@ -61,8 +87,37 @@ h2 {
   text-decoration: underline;
 }
 .sub-chapter {
-  padding-left: 5px;
-  background-color: #F8F8F8;
-  border: 2px solid lightgray;
   margin-bottom: 30px;
+}
+
+.sub-chapter ul li{
+  padding: 3px;
+
+
+}
+
+.definition {
+  border-collapse: collapse;
+}
+
+.definition td, th{
+  padding: 10px 40px 10px 40px;
+  border-bottom: 1px solid black;
+  text-align: left;
+}
+
+
+.definition th{
+  font-weight: bold;
+}
+
+.hidden-content {
+  display: none;
+}
+
+.video {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 70%;
+  height: 55%;
 }

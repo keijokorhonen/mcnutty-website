@@ -1,59 +1,74 @@
 #content {
   position: relative;
-  top: 250px; /* change distance from header */
+  top: 270px; /* change distance from header */
   z-index: 1;
   margin-left: 10%; /* for white space on sides */
   margin-right: 10%; /* for white space on sides */
 }
 
 /* title style */
+#title {
+  width: 100%;
+  height: 185px;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+}
 #title-bar {
   width: 100%;
-  height: 120px;
+  height: 185px;
   background-color: #7ED1ED;
-  border-bottom: 1px solid gray;
+  margin: auto;
+  text-align: center; /* bad way of centering text */
+
 
 }
 
 .title-icon {
   position: relative;
   display: inline;
-  padding: 0px 30px 0px 30px;
-  max-height:50%; /* scale with div */
+  padding: 0px 20px 0px 20px;
+  max-height:40%; /* scale with div */
   top: 50%;
   transform: translateY(-50%); /* to center the title in the box */
+
+}
+
+#title-box {
+  position: relative;
+  display: inline-block;
+  padding: 0px 100px 0px 100px;
+  margin: auto;
+  vertical-align: middle;
+  font-family:'Helvetica', sans-serif;
+  font-size: 4em;
+  color: white;
+  text-shadow: 0 0 5px black;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  top: 13%; /* can't get proper vertical align */
 
 }
 
 
 #title {
-  position: relative;
-  display: inline-block;
-  padding: 0px 100px 0px 100px;
-  font-family:'Source Sans Pro', sans-serif;
-  letter-spacing: 3px;
-  font-size: 3em;
-  color: white;
-  text-align: center; /* bad way of centering text */
-  top: 50%;
-  transform: translateY(-50%); /* to center the title in the box */
+  top: 43px;
 }
 
 #title-menu {
   position: relative;
   text-align: center;
-
   padding: 10px 20px 10px 20px;
   margin: auto;
-
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .title-menu-item {
   display: inline;
+  margin: auto;
   padding: 5px 20px 5px 20px;
   font-size: 1.1em;
   border-bottom: 5px solid transparent; /* transparent border to leave space for underline */
-  cursor: pointer;
 }
 
 .title-menu-item a {
@@ -61,8 +76,15 @@
   color: black;
 }
 
+.title-menu-item a:hover {
+}
+
 .title-menu-item-selected {
-  border-bottom: 5px solid #7ED1ED; /* toggled with JS to create underline */
+  border-bottom: 5px solid #7ED1ED; /* to create underline */
+}
+
+.title-menu-item-hovered {
+  border-bottom: 5px solid lightgray; /* to create underline */
 }
 
 .title-menu-item-selected a{
@@ -83,14 +105,38 @@
 .chapter-div {
   height: 100px;
   padding: 50px;
+}
+.chapter-title {
+  font-size: 1.2em;
+}
+
+.chapter-title:hover {
+  border-bottom: 2px solid #7ED1ED;
   cursor: pointer;
 }
 
-.chapter-title {
-  font-size: 1.2em;
+.chapter-title a{
+  text-decoration: none;
   color: #7ED1ED;
 }
+.description {
+  padding: 5px;
+}
+
+
 
 .topic {
   cursor: pointer;
+}
+
+.topic:hover {
+  text-decoration: underline;
+}
+
+#chapter-table .chapter{
+  border-bottom: 1px solid lightgray;
+}
+
+#chapter-table .topics{
+  border-bottom: 1px solid lightgray;
 }

@@ -2,10 +2,8 @@
 
 
 var main = function() { // js running on page
-  $('.title-menu-item').click(function() {
-    $('.title-menu-item').removeClass('title-menu-item-selected'); // remove menu item class from previous item
-    $(this).addClass('title-menu-item-selected'); // add menu item selected class
-    $(this).children('a').addClass('title-menu-link-active');
+  $('.title-menu-item-unselected a').hover(function() {
+    $(this).parent().toggleClass('title-menu-item-hovered'); // toggle menu item hovered class
   });
 };
 

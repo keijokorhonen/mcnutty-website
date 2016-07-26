@@ -1,3 +1,5 @@
+
+
 #content {
   margin: auto; /* center */
 }
@@ -6,10 +8,11 @@
   position: relative;
   text-align: center;
   display: block;
-  font-family: 'Oxygen', sans-serif; /* imported via Google Fonts */
-  font-size: 3em;
-  font-weight: 300;
-  letter-spacing: 3px;
+  font-size: 4em;
+  color: black;
+  font-family:'Helvetica', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.01em;
   top: 30px; /* distance from the top, NOT relative to menu bar, could be reworked */
   padding: 30px; /* to make space between title and title-line */
 }
@@ -32,10 +35,9 @@
 .group {
   position: relative;
   margin: auto;
-  border: gray 1px solid;
   height: 11em; /* relative sizing? */
   width: 20em; /* relative sizing? */
-  background-color: #f9f9f9; /* shameless copy from w3schools.com */
+  /* background-color: #f9f9f9; */ /* shameless copy from w3schools.com */
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* shameless copy from w3schools.com */
   z-index: 2;
 }
@@ -48,29 +50,138 @@
   width: 100%; /* bad way of centering text */
   top: 50%; /* to center the title in the box */
   transform: translateY(-50%); /* to center the title in the box */
-  font-size: 2em;
-  font-family: 'Oxygen', sans-serif;
+  font-size: 3em;
+  font-family: 'Helvetica', sans-serif;
+  color: white;
+  text-shadow: 0 0 7px black;
   z-index: 2; /* below links */
 }
 
-.subjects {
+.top-content {
+  height: 100%;
+  width: 100%;
+}
+
+.hidden-content{
   display: none; /* change with js  */
   z-index: 3; /* above title */
 }
-.subject-table {
-  width: 100%; /* makes table take up all of subjects div */
-  height: 100%; /* makes table take up all of subjects div */
-}
 
-.subject-table td {
-  border: gray 1px solid;
+.subject{
+  /* border: black 1px solid; */
+  color: black;
+  /* text-shadow: 0 0 7px black; */
+  letter-spacing: 0.1em;
   font-size: 1.2em;
   text-align: center;
+  vertical-align: middle;
   width: 50%; /* make all td boxes equal in size */
   height: 50%; /* make all td boxes equal in size */
-  background-color: lightgray;
+  background-color: rgba(255, 255, 255, 0.7);
   cursor: pointer; /* changes cursor to hand, looks like link */
 }
-.subject-table td:hover {
-  background-color: gray;
+
+.subject-title {
+  position: relative;
+  top: 50%; /* vertical center */
+  transform: translateY(-50%); /* vertical center */
+
+}
+.a {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 50%;
+  height: 50%;
+}
+
+.b {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 50%;
+  height: 50%;
+}
+
+.c {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 50%;
+  height: 50%;
+}
+
+.d {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 50%;
+  height: 50%;
+}
+
+.e {
+  position: absolute;
+  left: 0px;
+  width: 50%;
+  height: 100%;
+}
+
+.f {
+  position: absolute;
+  right: 0px;
+  width: 50%;
+  height: 100%;
+}
+
+.w {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  height: 50%;
+}
+
+.t {
+  position: absolute;
+  top:0px;
+  width: 100%;
+  height: 100%;
+}
+
+.hidden-content a{
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: black;
+}
+.subject:hover {
+  background-color: rgba(255, 255, 255, 1);
+  text-shadow: none;
+}
+
+
+#group1 .group  {
+  background-image: url('../img/home/group1.jpg');
+}
+
+#group2 .group {
+  background-image: url('../img/home/group2.jpg');
+}
+
+#group3 .group {
+  background-image: url('../img/home/group3.jpg');
+}
+
+#group4 .group {
+  background-image: url('../img/home/group4.jpg');
+  background-size: cover;
+}
+
+#group5 .group {
+  background-image: url('../img/home/group5.jpg');
+  background-size: cover;
+}
+
+#group6 .group {
+  background-image: url('../img/home/group6.jpg');
+  background-size: cover;
 }

@@ -1,3 +1,18 @@
+#left {
+  position: absolute;
+  margin-top: 40px; /* distance from header */
+  width: 50%;
+  left: 0px;
+}
+
+#right {
+  position: absolute;
+  margin-top: 40px; /* distance from header */
+
+  width: 50%;
+  right: 0px;
+}
+
 #assessment-chart {
   height: 400px;
   width: 600px;
