@@ -1,0 +1,24 @@
+#content {
+}
+
+.add-event-div {
+  position: absolute;
+  top: 100px;
+  margin: auto;
+  cursor: pointer;
+}
+.add-event {
+  padding: 10px;
+  display: block;
+}
+
+.add-event-clicked {
+  background-color: lightgray;
+}
+#schedule {
+  position: absolute;
+  top: 70px;
+  margin-left: 100px;
+  margin-right: 100px;
+
+}

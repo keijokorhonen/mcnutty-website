@@ -1,0 +1,103 @@
+<html>
+  <head>
+    <title> IB Home </title>
+    <link rel="stylesheet" type="text/css" href="css/main.css"> <!-- main stylesheet -->
+    <link rel="stylesheet" type="text/css" href="css/home.css"> <!-- home stylesheet -->
+    <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300|Source+Sans+Pro' rel='stylesheet' type='text/css'> <!-- used Google Fonts to import fonts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"> </script> <!-- CDN jqeury source -->
+    <script src="js/schedule.js"> </script>
+    <link rel='stylesheet' href='fullcalendar/fullcalendar.css'>
+    <link rel='stylesheet' href='css/schedule.css'>
+    <link rel='stylesheet' href='theme/jquery-ui.theme.css'>
+    <link rel='stylesheet' href='theme/jquery-ui.theme.min.css'>
+    <link rel='stylesheet' href='theme/jquery-ui.css'>
+    <link rel='stylesheet' href='theme/jquery-ui.structure.css'>
+    <script src='theme/jquery-ui.js'></script>
+    <script src='fullcalendar/lib/jquery.min.js'></script>
+    <script src='fullcalendar/lib/moment.min.js'></script>
+    <script src='fullcalendar/fullcalendar.js'></script>
+    <script>
+      var econ1 = {id: "econ",title:"Economics", start:"2016-10-10T08:05:00", end: '2016-10-10T09:25:00'};
+      var econ2 = {id: "econ",title:"Economics", start:"2016-10-11T08:10:00", end: '2016-10-11T09:25:00'};
+      var econ3 = {id: "econ",title:"Economics", start:"2016-10-13T14:55:00", end: '2016-10-13T16:15:00'};
+      var econ = ['unclicked', econ1,econ2,econ3]
+
+      var physics1 = {id: "physics",title:"Physics", start:"2016-10-10T15:10:00", end: '2016-10-10T16:30:00'};
+      var physics2 = {id: "physics",title:"Physics", start:"2016-10-12T08:05:00", end: '2016-10-12T09:25:00'};
+      var physics3 = {id: "physics",title:"Physics", start:"2016-10-14T13:40:00", end: '2016-10-14T15:20:00'};
+      var physics = ['unclicked', physics1, physics2, physics3]
+
+      var french1 = {id: "french",title:"French", start:"2016-10-11T15:00:00", end: '2016-10-11T16:10:00'};
+      var french2 = {id: "french",title:"French", start:"2016-10-13T08:00:00", end: '2016-10-13T09:20:00'};
+      var french3 = {id: "french",title:"French", start:"2016-10-14T09:10:00", end: '2016-10-14T10:40:00'};
+      var french = ['unclicked', french1, french2, french3]
+
+
+      var addEvent = function(sub, id) {
+        $('#'+id).toggleClass('add-event-clicked')
+        if (sub[0] == 'unclicked') {
+          sub[0] = 'clicked'
+          for (i = 1; i < sub.length; i++) {
+            $('#schedule').fullCalendar('renderEvent', sub[i], true );
+          }
+        }
+        else {
+          sub[0] = 'unclicked'
+          for (i = 0; i < sub.length -1; i++) {
+            $('#schedule').fullCalendar( 'removeEvents', id)
+          }
+        }
+
+
+      };
+
+      $(document).ready(function() {
+        $('#schedule').fullCalendar({
+          header: {
+            left: 'prev,next',
+            center: 'title',
+            right: 'today'
+          },
+          theme: true,
+          defaultDate: '2016-10-10',
+          defaultView: 'agendaWeek',
+          slotLabelFormat: 'H:mm',
+          slotEventOverlap: false,
+          weekNumbers: true,
+          weekends: false,
+          editable: false,
+          minTime: '07:30:00',
+          maxTime: '17:00:00',
+          eventLimit: true, // allow "more" link when too many events
+          events: [
+            {
+              title: 'Theory of Knowledge',
+              start: '2016-10-14T10:50:00',
+              end: '2016-10-14T12:00:00'
+            }
+          ]
+        });
+      });
+    </script>
+  </head>
+  <body>
+		<div class = "container">
+      <div id = "header"> <!-- page header, should be the same across all pages -->
+				<div id ="menu-bar"> <!-- could be a list -->
+          <span class="menu-item menu-home"> <a href="index.html"> Home </a> </span> <!-- also a similar mess, and should link to home -->
+					<span class="menu-item"> <a href="#"> News </a> </span> <!-- filler item -->
+					<span class="menu-item"> <a href="#"> Schedule </a> </span> <!-- filler item -->
+					<span class="menu-item menu-end"> <a href="#"> Contact </a> </span> <!-- filler item, class menu-end removes the right border used as a divider -->
+				</div>
+      </div>
+      <div id = "content">
+        <div id = "schedule"></div>
+        <div class ="add-event-div">
+          <span  id = "econ" class ="add-event" onClick ="addEvent(econ, 'econ')" href=""> Economics </span>
+          <span id ="physics" class ="add-event" onClick ="addEvent(physics, 'physics')" href=""> Physics </span>
+          <span  id = "french" class ="add-event" onClick ="addEvent(french, 'french')" href=""> French </span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
