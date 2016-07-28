@@ -12,9 +12,21 @@
   display: block;
 }
 
-.add-event-clicked {
+.add-event:hover {
   background-color: lightgray;
 }
+.add-event-clicked#econ{
+  background-color: rgb(102, 204, 0);
+}
+.add-event-clicked#physics{
+  background-color: rgb(255, 153, 0);
+}
+.add-event-clicked#french{
+  background-color: rgb(58, 135, 173)
+;;
+}
+
+
 #schedule {
   position: absolute;
   top: 70px;

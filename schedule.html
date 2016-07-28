@@ -17,38 +17,74 @@
     <script src='fullcalendar/lib/moment.min.js'></script>
     <script src='fullcalendar/fullcalendar.js'></script>
     <script>
-      var econ1 = {id: "econ",title:"Economics", start:"2016-10-10T08:05:00", end: '2016-10-10T09:25:00'};
-      var econ2 = {id: "econ",title:"Economics", start:"2016-10-11T08:10:00", end: '2016-10-11T09:25:00'};
-      var econ3 = {id: "econ",title:"Economics", start:"2016-10-13T14:55:00", end: '2016-10-13T16:15:00'};
-      var econ = ['unclicked', econ1,econ2,econ3]
+      function setCookie(cname,cvalue,exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        var expires = "expires=" + d.toGMTString();
+        document.cookie = cname+"="+cvalue+"; "+expires;
+      }
 
-      var physics1 = {id: "physics",title:"Physics", start:"2016-10-10T15:10:00", end: '2016-10-10T16:30:00'};
-      var physics2 = {id: "physics",title:"Physics", start:"2016-10-12T08:05:00", end: '2016-10-12T09:25:00'};
-      var physics3 = {id: "physics",title:"Physics", start:"2016-10-14T13:40:00", end: '2016-10-14T15:20:00'};
-      var physics = ['unclicked', physics1, physics2, physics3]
+      function getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0; i<ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+      }
+
+      function checkCookie() {
+        var user=getCookie("username");
+        if (user != "") {
+            alert("Welcome again " + user);
+        } else {
+           user = prompt("Please enter your name:","");
+           if (user != "" && user != null) {
+               setCookie("username", user, 30);
+           }
+        }
+      }
+      var sub_number = 3;
+      var sub_ref = ['econ','physics','french'];
+
+      var econ1 = {id: "econ",title:"Economics", start:"2016-10-10T08:05:00", end: '2016-10-10T09:25:00', color:'rgb(102, 204, 0)'};
+      var econ2 = {id: "econ",title:"Economics", start:"2016-10-11T08:10:00", end: '2016-10-11T09:25:00', color:'rgb(102, 204, 0)'};
+      var econ3 = {id: "econ",title:"Economics", start:"2016-10-13T14:55:00", end: '2016-10-13T16:15:00', color:'rgb(102, 204, 0)'};
+      var econ = ['unclicked', econ1,econ2,econ3];
+
+      var physics1 = {id: "physics",title:"Physics", start:"2016-10-10T15:10:00", end: '2016-10-10T16:30:00', color: 'rgb(255, 153, 0)'};
+      var physics2 = {id: "physics",title:"Physics", start:"2016-10-12T08:05:00", end: '2016-10-12T09:25:00', color: 'rgb(255, 153, 0)'};
+      var physics3 = {id: "physics",title:"Physics", start:"2016-10-14T13:40:00", end: '2016-10-14T15:20:00', color: 'rgb(255, 153, 0)'};
+      var physics = ['unclicked', physics1, physics2, physics3];
 
       var french1 = {id: "french",title:"French", start:"2016-10-11T15:00:00", end: '2016-10-11T16:10:00'};
       var french2 = {id: "french",title:"French", start:"2016-10-13T08:00:00", end: '2016-10-13T09:20:00'};
       var french3 = {id: "french",title:"French", start:"2016-10-14T09:10:00", end: '2016-10-14T10:40:00'};
-      var french = ['unclicked', french1, french2, french3]
+      var french = ['unclicked', french1, french2, french3];
 
 
-      var addEvent = function(sub, id) {
+      var addEvent = function(id, cookieId) {
         $('#'+id).toggleClass('add-event-clicked')
-        if (sub[0] == 'unclicked') {
-          sub[0] = 'clicked'
-          for (i = 1; i < sub.length; i++) {
-            $('#schedule').fullCalendar('renderEvent', sub[i], true );
+        if (window[id][0] == 'unclicked') {
+          setCookie('sub'+ cookieId,'display', 20000000)
+          window[id][0] = 'clicked'
+          for (i = 1; i < window[id].length; i++) {
+            $('#schedule').fullCalendar('renderEvent', window[id][i], true );
           }
         }
         else {
-          sub[0] = 'unclicked'
-          for (i = 0; i < sub.length -1; i++) {
+          setCookie('sub'+ cookieId,'not', 20000000)
+          window[id][0] = 'unclicked'
+          for (i = 0; i < window[id].length -1; i++) {
             $('#schedule').fullCalendar( 'removeEvents', id)
           }
         }
-
-
       };
 
       $(document).ready(function() {
@@ -77,7 +113,23 @@
             }
           ]
         });
+        var sub_number = 3;
+        // for (i = 0; i < sub_number-1; i++) {
+        //   if (getCookie('sub' + i.toString()) == 'display') {
+        //     addEvent(sub_ref[i], i);
+        //   };
+        // };
+        if (getCookie('sub0') == 'display') {
+              addEvent(sub_ref[0], 0);
+        };
+        if (getCookie('sub1') == 'display') {
+              addEvent(sub_ref[1], 1);
+        };
+        if (getCookie('sub2') == 'display') {
+              addEvent(sub_ref[2], 2);
+        };
       });
+
     </script>
   </head>
   <body>
@@ -93,9 +145,9 @@
       <div id = "content">
         <div id = "schedule"></div>
         <div class ="add-event-div">
-          <span  id = "econ" class ="add-event" onClick ="addEvent(econ, 'econ')" href=""> Economics </span>
-          <span id ="physics" class ="add-event" onClick ="addEvent(physics, 'physics')" href=""> Physics </span>
-          <span  id = "french" class ="add-event" onClick ="addEvent(french, 'french')" href=""> French </span>
+          <span  id = "econ" class ="add-event" onClick ="addEvent('econ', 0)" href=""> Economics </span>
+          <span id ="physics" class ="add-event" onClick ="addEvent('physics', 1)" href=""> Physics </span>
+          <span  id = "french" class ="add-event" onClick ="addEvent('french', 2)" href=""> French </span>
         </div>
       </div>
     </div>
