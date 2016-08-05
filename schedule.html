@@ -40,8 +40,7 @@
         return "";
       }
 
-      var sub_number = 3;
-      var class_ids  = [  ECOhlEK ,  ECOhlET , ECOhlAN ,  PSYChlHE ,  PSYCslMNP ,  MAhlCNS ,  MAslLGN ,  MAslMP , MASTslKHL ,  MASTslDL ,  HIShlON ,  HIShlLT ,  HIShlANG ,  BMslEDK , SWEBhlPNL ,  SWEBslPNL ,  SWELLhlLTE ,  SWELLslBM ,  SWELhlGD , CHEMhlSM ,  CHEMhlSCH ,  CHEMslJN ,  GLOPOLHR , THEAhlGG ,  PHYhlFM ,  PHYhlEE , PHYslEE , ENVslNNG , ENVslSTD ,  ENGLhlWR , ENGLLhlFD ,  ENGLLhlGG ,  ENGLslWR ,  ENGBhlPNJ ,  ENGBhlMM ,  ENGLLslANM ,  BIOhlLQ ,  BIOhlBOU , BIOslNNG,  FREBhlHK ,  SPABhlTEU ,  TOK_DL , TOK_LGN ,  TOK_WR ,  TOK_EE ]
+      var class_ids  = [  ECOhlEK ,  ECOhlET , ECOhlAN ,  PSYChlHE ,  PSYCslMNP ,  MAhlCNS ,  MAslLGN ,  MAslMP , MASTslKHL ,  MASTslDL ,  HIShlON ,  HIShlLT ,  HIShlANG ,  BMslEDK , SWEBhlPNL ,  SWEBslPNL ,  SWELLhlLTE ,  SWELLslBM ,  SWELhlGD , CHEMhlSM ,  CHEMhlSCH ,  CHEMslJN ,  GLOPOLHR , THEAhlGG ,  PHYhlFM ,  PHYhlEE , PHYslEE , ENVslNNG , ENVslSTD ,  ENGLhlWR , ENGLLhlFD ,  ENGLLhlGG ,  ENGLslWR ,  ENGBhlPNJ ,  ENGBhlMM ,  ENGLLslANM ,  BIOhlLQ ,  BIOhlBOU , BIOslNNG,  FREBhlHK , FREBslHK,  SPABhlTEU , SPABslTEU, TOK_DL , TOK_LGN ,  TOK_WR ,  TOK_EE ]
 
 
 
@@ -123,7 +122,7 @@
           maxTime: '17:00:00',
           eventLimit: true, // allow "more" link when too many events
           aspectRatio: 2.4,
-
+          weekNumberTitle: "Week ",
           eventSources: []
         });
         var i;
@@ -134,8 +133,10 @@
         };
         $(".dropdown").hover(function() {
           $(this).children('.dropdown-content').toggleClass('show');
-
         });
+        $(".dropdown-content a").click(function() {
+          $('#message').fadeOut(200);
+        })
       });
 
     </script>
@@ -151,24 +152,19 @@
 				</div>
       </div>
       <div id = "content">
-        <span id ="title"> Dicks out for Harambe </span>
-        <img src = "img/1.jpg">
-        <img src = "img/2.jpg">
-        <img src = "img/3.jpg">
-        <img src = "img/4.jpg">
-        <img src = "img/5.jpg">
+        <span id ="title"> IB14 Schedule </span>
         <div id = "class-bar">
           <ul>
             <li class="dropdown">
               <a href="javascript:void(0)" class="dropbtn">Economics</a>
               <div class="dropdown-content">
-                <a id = "ECOhlEK" href="#" onclick="addEventSource(ECOhlEK)">HL/SL - Anna Ellmark</a>
-                <a href="#" onclick="addEventSource(ECOhlET)">HL/SL - Theresia Ehrnst</a>
-                <a href="#" onclick="addEventSource(ECOhlAN)">HL/SL - Magnus Anderson</a>
+                <a id = "ECOhlEK" onclick="addEventSource(ECOhlEK)">HL/SL - Anna Ellmark</a>
+                <a  onclick="addEventSource(ECOhlET)">HL/SL - MYP</a>
+                <a  onclick="addEventSource(ECOhlAN)">HL/SL - Magnus Anderson</a>
               </div>
             </li>
             <li class="dropdown">
-              <a href="javascript:void(0)" class="dropbtn">Pyschology</a>
+              <a href="javascript:void(0)" class="dropbtn">Psychology</a>
               <div class="dropdown-content">
                 <a href="#" onclick="addEventSource(PSYChlHE)">HL - Iaa Hedin</a>
                 <a href="#" onclick="addEventSource(PSYCslMNP)">SL - MNP</a>
@@ -177,9 +173,9 @@
             <li class="dropdown">
               <a href="javascript:void(0)" class="dropbtn">History</a>
               <div class="dropdown-content">
-                <a href="#" onclick="addEventSource(HIShlON)">HL - ON</a>
-                <a href="#" onclick="addEventSource(HIShlLT)">HL - LT</a>
-                <a href="#" onclick="addEventSource(HIShlANG)">HL - Anders Breivik</a>
+                <a href="#" onclick="addEventSource(HIShlON)">HL - Sam Olofsson</a>
+                <a href="#" onclick="addEventSource(HIShlLT)">HL - Magnus L&ouml;fqvist</a>
+                <a href="#" onclick="addEventSource(HIShlANG)">HL - Anders Arnberg</a>
               </div>
             </li>
             <li class="dropdown">
@@ -193,9 +189,9 @@
               <div class="dropdown-content">
                 <a href="#" onclick="addEventSource(MAhlCNS)">HL - Stuart Cameron</a>
                 <a href="#" onclick="addEventSource(MAslLGN)">SL - Carol Lundgren</a>
-                <a href="#" onclick="addEventSource(MAslMP)">SL - MP</a>
+                <a href="#" onclick="addEventSource(MAslMP)">SL - Peter Moritz</a>
                 <a href="#" onclick="addEventSource(MASTslDL)">Studies - Jonas Dahl</a>
-                <a href="#" onclick="addEventSource(MASTslKHL)">Studies- KHL</a>
+                <a href="#" onclick="addEventSource(MASTslKHL)">Studies- Lone Krogh</a>
               </div>
             </li>
             <li class="dropdown">
@@ -203,56 +199,66 @@
               <div class="dropdown-content">
                 <a href="#" onclick="addEventSource(ENGLhlWR)">L HL - Simon Walker</a>
                 <a href="#" onclick="addEventSource(ENGLLhlFD)">LL HL - Leslie Fleetwood</a>
-                <a href="#" onclick="addEventSource(ENGLLhlGG)">LL HL - GG</a>
-                <a href="#" onclick="addEventSource(ENGLLslANM)">LL SL - Malin Anderson</a>
-                <a href="#" onclick="addEventSource(ENGBhlMM)">B HL - MM</a>
-                <a href="#" onclick="addEventSource(ENGBhlPNJ)">B HL - PNJ</a>
+                <a href="#" onclick="addEventSource(ENGLLhlGG)">LL HL - Sarah Glendinning</a>
+                <a href="#" onclick="addEventSource(ENGLLslANM)">LL SL - Malin Andersson</a>
+                <a href="#" onclick="addEventSource(ENGBhlMM)">B HL - Helene Malmstr&ouml;m</a>
+                <a href="#" onclick="addEventSource(ENGBhlPNJ)">B HL - Jorgen Pettersson</a>
               </div>
             </li>
             <li class="dropdown">
               <a href="javascript:void(0)" class="dropbtn">Swedish</a>
               <div class="dropdown-content">
                 <a href="#" onclick="addEventSource(SWELhlGD)">L HL - GD</a>
-                <a href="#" onclick="addEventSource(SWELLhlLTE)">LL HL - LTE</a>
-                <a href="#" onclick="addEventSource(SWELLslBM)">LL SL - BM</a>
-                <a href="#" onclick="addEventSource(SWEBhlPNL)">HL - PNL</a>
-                <a href="#" onclick="addEventSource(SWEBslPNL)">SL - PNL</a>
+                <a href="#" onclick="addEventSource(SWELLhlLTE)">LL HL - Eva Lindqvist</a>
+                <a href="#" onclick="addEventSource(SWELLslBM)">LL SL - Pernille Bj&auml;rum</a>
+                <a href="#" onclick="addEventSource(SWEBhlPNL)">HL - Linda Persson</a>
+                <a href="#" onclick="addEventSource(SWEBslPNL)">SL - Linda Persson</a>
               </div>
             </li>
             <li class="dropdown">
-              <a href="javascript:void(0)" class="dropbtn" onclick ="addEventSource(FREBhlHK)">French</a>
+              <a href="javascript:void(0)" class="dropbtn">French</a>
+              <div class="dropdown-content">
+                <a href="#" onclick="addEventSource(FREBhlHK)">HL</a>
+                <a href="#" onclick="addEventSource(FREBslHK)">SL</a>
+              </div>
             </li>
             <li class="dropdown">
-              <a href="javascript:void(0)" class="dropbtn" onclick="addEventSource(SPABhlTEU)">Spanish</a>
+              <a href="javascript:void(0)" class="dropbtn">Spanish</a>
+              <div class="dropdown-content">
+                <a href="#" onclick="addEventSource(SPABhlTEU)">HL</a>
+                <a href="#" onclick="addEventSource(SPABslTEU)">SL</a>
+              </div>
             </li>
             <li class="dropdown">
               <a href="javascript:void(0)" class="dropbtn">Physics</a>
               <div class="dropdown-content">
                 <a href="#" onclick="addEventSource(PHYhlFM)">HL - Kim Freimann</a>
-                <a href="#" onclick="addEventSource(PHYslEE)">HL/SL - Sam Edgecombe</a>
+                <a href="#" onclick="addEventSource(PHYhlEE)">HL - Sam Edgecombe</a>
+                <a href="#" onclick="addEventSource(PHYslEE)">SL - Sam Edgecombe</a>
+
               </div>
             </li>
             <li class="dropdown">
               <a href="javascript:void(0)" class="dropbtn">Chemistry</a>
               <div class="dropdown-content">
-                <a href="#" onclick="addEventSource(CHEMhlSM)">HL - SM</a>
-                <a href="#" onclick="addEventSource(CHEMhlSCH)">HL - SCH</a>
-                <a href="#" onclick="addEventSource(CHEMslJN)">SL - Britta</a>
+                <a href="#" onclick="addEventSource(CHEMhlSM)">HL - Monica Siljestrom</a>
+                <a href="#" onclick="addEventSource(CHEMhlSCH)">HL - Ingrid Schr&ouml;der</a>
+                <a href="#" onclick="addEventSource(CHEMslJN)">SL - Britta Johansson</a>
               </div>
             </li>
             <li class="dropdown">
               <a href="javascript:void(0)" class="dropbtn">Biology</a>
               <div class="dropdown-content">
-                <a href="#" onclick="addEventSource(BIOhlLQ)">HL - LQ</a>
-                <a href="#" onclick="addEventSource(BIOhlBOU)">HL - BOU</a>
-                <a href="#" onclick="addEventSource(BIOslNNG)">SL - Göran Nilsson</a>
+                <a href="#" onclick="addEventSource(BIOhlLQ)">HL - Lena Lundquist</a>
+                <a href="#" onclick="addEventSource(BIOhlBOU)">HL - Louise Boucher</a>
+                <a href="#" onclick="addEventSource(BIOslNNG)">SL - G&ouml;ran Nilsson</a>
               </div>
             </li>
             <li class="dropdown">
               <a href="javascript:void(0)" class="dropbtn">En. Sys.</a>
               <div class="dropdown-content">
                 <a href="#" onclick="addEventSource(ENVslSTD)">James Sutherland</a>
-                <a href="#" onclick="addEventSource(ENVslNNG)">Göran Nilsson</a>
+                <a href="#" onclick="addEventSource(ENVslNNG)">G&ouml;ran Nilsson</a>
               </div>
             </li>
 
@@ -262,13 +268,16 @@
                 <a href="#" onclick="addEventSource(TOK_WR)">Simon Walker</a>
                 <a href="#" onclick="addEventSource(TOK_DL)">Jonas Dahl</a>
                 <a href="#" onclick="addEventSource(TOK_LGN)">Carol Lundgren</a>
-                <a href="#" onclick="addEventSource(TOK_EE)">Sam Edge cum</a>
+                <a href="#" onclick="addEventSource(TOK_EE)">Sam Edgecombe</a>
               </div>
             </li>
             <li class="dropdown">
               <a href="javascript:void(0)" class="dropbtn" onclick="addEventSource(THEAhlGG)">Theatre</a>
             </li>
           </ul>
+          <div id = "message">
+            <span> Pick your subjects to add them to your schedule - they will be saved </span>
+          </div>
         <div id = "schedule"></div>
       </div>
     </div>
