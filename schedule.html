@@ -3,6 +3,8 @@
     <title> IB Home </title>
     <link rel="stylesheet" type="text/css" href="css/main.css"> <!-- main stylesheet -->
     <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300|Source+Sans+Pro' rel='stylesheet' type='text/css'> <!-- used Google Fonts to import fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="icon" href="icons/calendar.svg">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"> </script> <!-- CDN jqeury source -->
     <script src="js/schedule.js"> </script>
     <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> --> <!-- Bootstrap JS CDN -->
@@ -42,50 +44,6 @@
 
       var class_ids  = [  ECOhlEK ,  ECOhlET , ECOhlAN ,  PSYChlHE ,  PSYCslMNP ,  MAhlCNS ,  MAslLGN ,  MAslMP , MASTslKHL ,  MASTslDL ,  HIShlON ,  HIShlLT ,  HIShlANG ,  BMslEDK , SWEBhlPNL ,  SWEBslPNL ,  SWELLhlLTE ,  SWELLslBM ,  SWELhlGD , CHEMhlSM ,  CHEMhlSCH ,  CHEMslJN ,  GLOPOLHR , THEAhlGG ,  PHYhlFM ,  PHYhlEE , PHYslEE , ENVslNNG , ENVslSTD ,  ENGLhlWR , ENGLLhlFD ,  ENGLLhlGG ,  ENGLslWR ,  ENGBhlPNJ ,  ENGBhlMM ,  ENGLLslANM ,  BIOhlLQ ,  BIOhlBOU , BIOslNNG,  FREBhlHK , FREBslHK,  SPABhlTEU , SPABslTEU, TOK_DL , TOK_LGN ,  TOK_WR ,  TOK_EE ]
 
-
-
-      var changeColor = function(id) {
-        $('#'+id).toggleClass('add-event-clicked')
-        var events = $('#schedule').fullCalendar( 'clientEvents' , id)
-        var event_source = $('#schedule').fullCalendar( 'getEventSourceById', id )
-        if (window[id].clicked == false) {
-          setCookie(id,'y', 20000000)
-          window[id].clicked = false
-          event_source.color = 'rgba(255, 153, 0, 255)'
-          event_source.textColor = 'rgba(255, 255, 255, 255)'
-          event_source.rendering = ''
-          $('#schedule').fullCalendar( 'refetchEvents' )
-        }
-        else {
-          setCookie(id,'n', 20000000);
-          window[id].clicked = true;
-          event_source.color = 'rgba(255, 153, 0, 0)'
-          event_source.textColor = 'rgba(255, 255, 255, 0)'
-          event_source.rendering = 'background'
-          $('#schedule').fullCalendar( 'refetchEvents' )
-        };
-      };
-
-      var addEvent = function(id) {
-        $('#'+id).toggleClass('add-event-clicked')
-        if (window[id][0] == 'unclicked') {
-          setCookie(id,'y', 20000000)
-          window[id][0] = 'clicked'
-          for (i = 1; i < 10; i++) {
-            $('#schedule').fullCalendar('renderEvent', window[id][i], true );
-          }
-          for (i = 10; i < window[id].length; i++) {
-            $('#schedule').fullCalendar('renderEvent', window[id][i], true );
-          }
-        }
-        else {
-          setCookie(id,'n', 20000000);
-          window[id][0] = 'unclicked';
-          for (i = 0; i < window[id].length -1; i++) {
-            $('#schedule').fullCalendar( 'removeEvents', id);
-          };
-        };
-      };
       var addEventSource = function(course) {
         //$('#'+course.id).parent().parent().toggleClass('clicked')
         //$('#'+course.id).parent().toggleClass('clicked')
@@ -102,12 +60,36 @@
         };
       };
 
+      // stuff for the intro message
+      if (getCookie('first-time') == ''){
+        (setCookie('first-time', 'y',20000000));
+      }
+      if (getCookie('first-time') == 'n'){
+        $('#message').toggleClass('message-hidden');
+        $('#message').toggleClass('message');
+
+      }
       $(document).ready(function() {
+        $(".dropdown").hover(function() {
+          $(this).children('.dropdown-content').toggleClass('show');
+        });
+        $(".dropdown-content a").click(function() {
+          if (getCookie('first-time') == 'y') {
+            setCookie('first-time', 'n', 20000000)
+          }
+          $('#message').fadeOut(200); // hides initial message when a class is chosen
+        })
+        $(".dropdown").click(function() {
+          if (getCookie('first-time') == 'y') {
+            setCookie('first-time', 'n', 20000000)
+          }
+          $('#message').fadeOut(200); // hides initial message when a class is chosen
+        })
         $('#schedule').fullCalendar({
           header: {
             left: 'prev,next',
             center: 'title',
-            right: 'today'
+            right: 'clearAll today'
           },
           theme: true,
           defaultDate: '2016-08-22',
@@ -121,9 +103,17 @@
           minTime: '08:00:00',
           maxTime: '17:00:00',
           eventLimit: true, // allow "more" link when too many events
-          aspectRatio: 2.4,
+          aspectRatio: 2.5,
           weekNumberTitle: "Week ",
-          eventSources: []
+          eventSources: [],
+          customButtons: {
+             clearAll: {
+                text: 'Clear All',
+                    click: function() {
+                        $('#schedule').fullCalendar( 'removeEventSources');
+                    }
+                }
+            },
         });
         var i;
         for (i = 0; i < class_ids.length ; i++) {
@@ -131,12 +121,6 @@
               addEventSource(class_ids[i]);
           };
         };
-        $(".dropdown").hover(function() {
-          $(this).children('.dropdown-content').toggleClass('show');
-        });
-        $(".dropdown-content a").click(function() {
-          $('#message').fadeOut(200);
-        })
       });
 
     </script>
@@ -152,7 +136,9 @@
 				</div>
       </div>
       <div id = "content">
-        <span id ="title"> IB14 Schedule </span>
+        <div id = "title-bar">
+          <span id ="title"> IB14 Schedule</span>
+        </div>
         <div id = "class-bar">
           <ul>
             <li class="dropdown">
@@ -255,7 +241,7 @@
               </div>
             </li>
             <li class="dropdown">
-              <a href="javascript:void(0)" class="dropbtn">En. Sys.</a>
+              <a href="javascript:void(0)" class="dropbtn">Env. Sys.</a>
               <div class="dropdown-content">
                 <a href="#" onclick="addEventSource(ENVslSTD)">James Sutherland</a>
                 <a href="#" onclick="addEventSource(ENVslNNG)">G&ouml;ran Nilsson</a>
@@ -275,9 +261,9 @@
               <a href="javascript:void(0)" class="dropbtn" onclick="addEventSource(THEAhlGG)">Theatre</a>
             </li>
           </ul>
-          <div id = "message">
+          <!-- <div class = "message">
             <span> Pick your subjects to add them to your schedule - they will be saved </span>
-          </div>
+          </div> -->
         <div id = "schedule"></div>
       </div>
     </div>

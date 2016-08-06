@@ -2,13 +2,26 @@
   position: absolute;
   top: 50px;
   text-align: center;
+  font-family: 'Open Sans', sans-serif;
 
 }
 
 #title {
-  font-size: 2em;
+  font-size: 3em;
+  font-family: 'Helvetica', sans-serif;
+  font-weight: 100;
 }
+
+#title-bar {
+  border-top: solid 1px #1C140D;
+  border-bottom: solid 1px #1C140D;
+  padding: 5px;
+  letter-spacing: 0.2em;
+
+}
+
 #class-bar {
+  position: relative;
   width: 100%;
   margin: auto;
 }
@@ -31,18 +44,21 @@
 #schedule {
   margin-left: 150px;
   margin-right: 150px;
-  margin-top: 20px;
+  margin-top: 10px;
+  font-family: 'Open Sans', sans-serif;
+
 }
 
 
 
 ul {
     list-style-type: none;
-    margin-top: 15px;
+    margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: 	#AAD2FF;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    background-color: 	#CBE86B;
+    border-bottom: solid 5px #F2E9E1;
+    /* box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.2); */
 
 }
 
@@ -55,14 +71,14 @@ li a, .dropbtn {
     display: inline-block;
     color: black;
     text-align: center;
-    padding: 14px 14px;
+    padding: 14px 12px;
     text-decoration: none;
     cursor: pointer;
 
 }
 
 li a:hover, .dropdown:hover .dropbtn {
-    background-color: #C5E1FF;
+    background-color: #d8ee91;
 }
 
 li.dropdown {
@@ -97,11 +113,9 @@ li.dropdown {
   background-color: #f1f1f1
 }
 
-.show {
-  display:block;
-}
 
-#message {
+
+.message {
   position: absolute;
   top: 300px;
   width: 100%;
@@ -109,10 +123,21 @@ li.dropdown {
   z-index: 8;
 }
 
-#message span{
+.message span{
   font-size: 1.5em;
   padding: 20px;
-  background-color: #AAD2FF;
+  background-color: #F2E9E1;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 
+}
+
+.message-hidden {
+  display: none;
+}
+.show {
+  display:block;
+}
+
+.hide {
+  display: none;
 }
