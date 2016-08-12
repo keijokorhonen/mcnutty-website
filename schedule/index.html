@@ -1,0 +1,271 @@
+<html>
+  <head>
+    <title> IB Home </title>
+    <link rel="stylesheet" type="text/css" href="../css/main.css"> <!-- main stylesheet -->
+    <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300|Source+Sans+Pro' rel='stylesheet' type='text/css'> <!-- used Google Fonts to import fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="icon" href="../icons/calendar.svg">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"> </script> <!-- CDN jqeury source -->
+    <script src="../js/schedule.js"> </script>
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> --> <!-- Bootstrap JS CDN -->
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> --><!-- Bootstrap CSS CDN -->
+    <link rel='stylesheet' href='fullcalendar/fullcalendar.css'>
+    <link rel='stylesheet' href='../css/schedule.css'>
+    <link rel='stylesheet' href='theme/jquery-ui.theme.css'>
+    <link rel='stylesheet' href='theme/jquery-ui.theme.min.css'>
+    <link rel='stylesheet' href='theme/jquery-ui.css'>
+    <link rel='stylesheet' href='theme/jquery-ui.structure.css'>
+    <script src='theme/jquery-ui.js'></script>
+    <script src='fullcalendar/lib/jquery.min.js'></script>
+    <script src='fullcalendar/lib/moment.min.js'></script>
+    <script src='fullcalendar/fullcalendar.js'></script>
+    <script>
+      function setCookie(cname,cvalue,exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        var expires = "expires=" + d.toGMTString();
+        document.cookie = cname+"="+cvalue+"; "+expires;
+      }
+
+      function getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0; i<ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+      }
+
+      var class_ids  = [  ECOhlEK ,  ECOhlET , ECOhlAN ,  PSYChlHE ,  PSYCslMNP ,  MAhlCNS ,  MAslLGN ,  MAslMP , MASTslKHL ,  MASTslDL ,  HIShlON ,  HIShlLT ,  HIShlANG ,  BMslEDK , SWEBhlPNL ,  SWEBslPNL ,  SWELLhlLTE ,  SWELLslBM ,  SWELhlGD , CHEMhlSM ,  CHEMhlSCH ,  CHEMslJN ,  GLOPOLHR , THEAhlGG ,  PHYhlFM ,  PHYhlEE , PHYslEE , ENVslNNG , ENVslSTD ,  ENGLhlWR , ENGLLhlFD ,  ENGLLhlGG ,  ENGLslWR ,  ENGBhlPNJ ,  ENGBhlMM ,  ENGLLslANM ,  BIOhlLQ ,  BIOhlBOU , BIOslNNG,  FREBhlHK , FREBslHK,  SPABhlTEU , SPABslTEU, TOK_DL , TOK_LGN ,  TOK_WR ,  TOK_EE ]
+
+      var addEventSource = function(course) {
+        //$('#'+course.id).parent().parent().toggleClass('clicked')
+        //$('#'+course.id).parent().toggleClass('clicked')
+        if (course.clicked == false) {
+          setCookie(course.id,'y', 20000000)
+          course.clicked = true
+          $('#schedule').fullCalendar( 'addEventSource', course)
+
+        }
+        else {
+          setCookie(course.id,'n', 20000000);
+          course.clicked = false;
+          $('#schedule').fullCalendar( 'removeEventSource', course.id )
+        };
+      };
+
+      // stuff for the intro message
+      if (getCookie('first-time') == ''){
+        (setCookie('first-time', 'y',20000000));
+      }
+      if (getCookie('first-time') == 'n'){
+        $('#message').toggleClass('message-hidden');
+        $('#message').toggleClass('message');
+
+      }
+      $(document).ready(function() {
+        $(".dropdown").hover(function() {
+          $(this).children('.dropdown-content').toggleClass('show');
+        });
+        $(".dropdown-content a").click(function() {
+          if (getCookie('first-time') == 'y') {
+            setCookie('first-time', 'n', 20000000)
+          }
+          $('#message').fadeOut(200); // hides initial message when a class is chosen
+        })
+        $(".dropdown").click(function() {
+          if (getCookie('first-time') == 'y') {
+            setCookie('first-time', 'n', 20000000)
+          }
+          $('#message').fadeOut(200); // hides initial message when a class is chosen
+        })
+        $('#schedule').fullCalendar({
+          header: {
+            left: 'prev,next',
+            center: 'title',
+            right: 'clearAll today'
+          },
+          theme: true,
+          defaultDate: '2016-08-22',
+          defaultView: 'agendaWeek',
+          slotLabelFormat: 'H:mm',
+          slotEventOverlap: false,
+          allDaySlot: false,
+          weekNumbers: true,
+          weekends: false,
+          editable: false,
+          minTime: '08:00:00',
+          maxTime: '17:00:00',
+          eventLimit: true, // allow "more" link when too many events
+          aspectRatio: 2.5,
+          weekNumberTitle: "Week ",
+          eventSources: [],
+          customButtons: {
+             clearAll: {
+                text: 'Clear All',
+                    click: function() {
+                        $('#schedule').fullCalendar( 'removeEventSources');
+                    }
+                }
+            },
+        });
+        var i;
+        for (i = 0; i < class_ids.length ; i++) {
+          if (getCookie(class_ids[i].id) == 'y') {
+              addEventSource(class_ids[i]);
+          };
+        };
+      });
+
+    </script>
+  </head>
+  <body>
+		<div class = "container">
+      <div id = "header"> <!-- page header, should be the same across all pages -->
+				<div id ="menu-bar"> <!-- could be a list -->
+          <span class="menu-item menu-home"> <a href="index.html"> Home </a> </span> <!-- also a similar mess, and should link to home -->
+					<span class="menu-item"> <a href="#"> News </a> </span> <!-- filler item -->
+					<span class="menu-item"> <a href="#"> Schedule </a> </span> <!-- filler item -->
+					<span class="menu-item menu-end"> <a href="#"> Contact </a> </span> <!-- filler item, class menu-end removes the right border used as a divider -->
+				</div>
+      </div>
+      <div id = "content">
+        <div id = "title-bar">
+          <span id ="title"> IB14 Schedule</span>
+        </div>
+        <div id = "class-bar">
+          <ul>
+            <li class="dropdown">
+              <a href="javascript:void(0)" class="dropbtn">Economics</a>
+              <div class="dropdown-content">
+                <a id = "ECOhlEK" onclick="addEventSource(ECOhlEK)">HL/SL - Anna Ellmark</a>
+                <a  onclick="addEventSource(ECOhlET)">HL/SL - MYP</a>
+                <a  onclick="addEventSource(ECOhlAN)">HL/SL - Magnus Anderson</a>
+              </div>
+            </li>
+            <li class="dropdown">
+              <a href="javascript:void(0)" class="dropbtn">Psychology</a>
+              <div class="dropdown-content">
+                <a href="#" onclick="addEventSource(PSYChlHE)">HL - Iaa Hedin</a>
+                <a href="#" onclick="addEventSource(PSYCslMNP)">SL - MNP</a>
+              </div>
+            </li>
+            <li class="dropdown">
+              <a href="javascript:void(0)" class="dropbtn">History</a>
+              <div class="dropdown-content">
+                <a href="#" onclick="addEventSource(HIShlON)">HL - Sam Olofsson</a>
+                <a href="#" onclick="addEventSource(HIShlLT)">HL - Magnus L&ouml;fqvist</a>
+                <a href="#" onclick="addEventSource(HIShlANG)">HL - Anders Arnberg</a>
+              </div>
+            </li>
+            <li class="dropdown">
+              <a id="BMslEDK" href="javascript:void(0)" class="dropbtn" onclick="addEventSource(BMslEDK)">Bus. Man.</a>
+            </li>
+            <li class="dropdown">
+              <a id="GLOPOLHR" href="javascript:void(0)" class="dropbtn" onclick="addEventSource(GLOPOLHR)">Global Politics</a>
+            </li>
+            <li class="dropdown">
+              <a href="javascript:void(0)" class="dropbtn">Math</a>
+              <div class="dropdown-content">
+                <a href="#" onclick="addEventSource(MAhlCNS)">HL - Stuart Cameron</a>
+                <a href="#" onclick="addEventSource(MAslLGN)">SL - Carol Lundgren</a>
+                <a href="#" onclick="addEventSource(MAslMP)">SL - Peter Moritz</a>
+                <a href="#" onclick="addEventSource(MASTslDL)">Studies - Jonas Dahl</a>
+                <a href="#" onclick="addEventSource(MASTslKHL)">Studies- Lone Krogh</a>
+              </div>
+            </li>
+            <li class="dropdown">
+              <a href="javascript:void(0)" class="dropbtn">English</a>
+              <div class="dropdown-content">
+                <a href="#" onclick="addEventSource(ENGLhlWR)">L HL - Simon Walker</a>
+                <a href="#" onclick="addEventSource(ENGLLhlFD)">LL HL - Leslie Fleetwood</a>
+                <a href="#" onclick="addEventSource(ENGLLhlGG)">LL HL - Sarah Glendinning</a>
+                <a href="#" onclick="addEventSource(ENGLLslANM)">LL SL - Malin Andersson</a>
+                <a href="#" onclick="addEventSource(ENGBhlMM)">B HL - Helene Malmstr&ouml;m</a>
+                <a href="#" onclick="addEventSource(ENGBhlPNJ)">B HL - Jorgen Pettersson</a>
+              </div>
+            </li>
+            <li class="dropdown">
+              <a href="javascript:void(0)" class="dropbtn">Swedish</a>
+              <div class="dropdown-content">
+                <a href="#" onclick="addEventSource(SWELhlGD)">L HL - GD</a>
+                <a href="#" onclick="addEventSource(SWELLhlLTE)">LL HL - Eva Lindqvist</a>
+                <a href="#" onclick="addEventSource(SWELLslBM)">LL SL - Pernille Bj&auml;rum</a>
+                <a href="#" onclick="addEventSource(SWEBhlPNL)">HL - Linda Persson</a>
+                <a href="#" onclick="addEventSource(SWEBslPNL)">SL - Linda Persson</a>
+              </div>
+            </li>
+            <li class="dropdown">
+              <a href="javascript:void(0)" class="dropbtn">French</a>
+              <div class="dropdown-content">
+                <a href="#" onclick="addEventSource(FREBhlHK)">HL</a>
+                <a href="#" onclick="addEventSource(FREBslHK)">SL</a>
+              </div>
+            </li>
+            <li class="dropdown">
+              <a href="javascript:void(0)" class="dropbtn">Spanish</a>
+              <div class="dropdown-content">
+                <a href="#" onclick="addEventSource(SPABhlTEU)">HL</a>
+                <a href="#" onclick="addEventSource(SPABslTEU)">SL</a>
+              </div>
+            </li>
+            <li class="dropdown">
+              <a href="javascript:void(0)" class="dropbtn">Physics</a>
+              <div class="dropdown-content">
+                <a href="#" onclick="addEventSource(PHYhlFM)">HL - Kim Freimann</a>
+                <a href="#" onclick="addEventSource(PHYhlEE)">HL - Sam Edgecombe</a>
+                <a href="#" onclick="addEventSource(PHYslEE)">SL - Sam Edgecombe</a>
+
+              </div>
+            </li>
+            <li class="dropdown">
+              <a href="javascript:void(0)" class="dropbtn">Chemistry</a>
+              <div class="dropdown-content">
+                <a href="#" onclick="addEventSource(CHEMhlSM)">HL - Monica Siljestrom</a>
+                <a href="#" onclick="addEventSource(CHEMhlSCH)">HL - Ingrid Schr&ouml;der</a>
+                <a href="#" onclick="addEventSource(CHEMslJN)">SL - Britta Johansson</a>
+              </div>
+            </li>
+            <li class="dropdown">
+              <a href="javascript:void(0)" class="dropbtn">Biology</a>
+              <div class="dropdown-content">
+                <a href="#" onclick="addEventSource(BIOhlLQ)">HL - Lena Lundquist</a>
+                <a href="#" onclick="addEventSource(BIOhlBOU)">HL - Louise Boucher</a>
+                <a href="#" onclick="addEventSource(BIOslNNG)">SL - G&ouml;ran Nilsson</a>
+              </div>
+            </li>
+            <li class="dropdown">
+              <a href="javascript:void(0)" class="dropbtn">Env. Sys.</a>
+              <div class="dropdown-content">
+                <a href="#" onclick="addEventSource(ENVslSTD)">James Sutherland</a>
+                <a href="#" onclick="addEventSource(ENVslNNG)">G&ouml;ran Nilsson</a>
+              </div>
+            </li>
+
+            <li class="dropdown">
+              <a href="javascript:void(0)" class="dropbtn">TOK</a>
+              <div class="dropdown-content">
+                <a href="#" onclick="addEventSource(TOK_WR)">Simon Walker</a>
+                <a href="#" onclick="addEventSource(TOK_DL)">Jonas Dahl</a>
+                <a href="#" onclick="addEventSource(TOK_LGN)">Carol Lundgren</a>
+                <a href="#" onclick="addEventSource(TOK_EE)">Sam Edgecombe</a>
+              </div>
+            </li>
+            <li class="dropdown">
+              <a href="javascript:void(0)" class="dropbtn" onclick="addEventSource(THEAhlGG)">Theatre</a>
+            </li>
+          </ul>
+          <!-- <div class = "message">
+            <span> Pick your subjects to add them to your schedule - they will be saved </span>
+          </div> -->
+        <div id = "schedule"></div>
+      </div>
+    </div>
+  </body>
+</html>
