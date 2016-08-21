@@ -1,182 +1,152 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <title> IB Home </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- The width=device-width part sets the width of the page to follow the screen-width of the device (which will vary depending on the device). The initial-scale=1 part sets the initial zoom level when the page is first loaded by the browser. -->
+    <title> Borgar IB </title>
     <link rel="stylesheet" type="text/css" href="css/main.css"> <!-- main stylesheet -->
     <link rel="stylesheet" type="text/css" href="css/home.css"> <!-- home stylesheet -->
-    <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300|Source+Sans+Pro' rel='stylesheet' type='text/css'> <!-- used Google Fonts to import fonts -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"> </script> <!-- CDN jqeury source -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> <!-- CDN Bootstrap CSS -->
+    <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300|Source+Sans+Pro' rel='stylesheet' type='text/css'> <!-- NOTE not currently in use / used Google Fonts to import fonts -->
     <script src="js/home.js"> </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"> </script> <!-- CDN jqeury source -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> <!-- CDN bootstrap JS -->
+
   </head>
   <body>
-		<div class = "container">
-      <div id = "header"> <!-- page header, should be the same across all pages -->
-				<div id ="menu-bar"> <!-- could be a list -->
-          <span class="menu-item menu-home"> <a href="index.html"> Home </a> </span> <!-- also a similar mess, and should link to home -->
-					<span class="menu-item"> <a href="#"> News </a> </span> <!-- filler item -->
-					<span class="menu-item"> <a href="schedule/index.html"> Schedule </a> </span> <!-- filler item -->
-					<span class="menu-item menu-end"> <a href="#"> Contact </a> </span> <!-- filler item, class menu-end removes the right border used as a divider -->
-				</div>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><span class="brand-ib">ib</span>.<span class="brand-borgar">borgar</span>.<span class = "brand-se">se</span></a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="schedule/index.html">Schedule</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
       </div>
+    </nav>
+		<div class = "container">
       <div id = "content">
-        <span id = "title">IB SHIT</span> <!-- title of the page -->
-        <!-- <hr id = "title-line"> --> <!-- line underneath title, does NOT automatically scale with title length -->
-        <table id = "group-table"> <!-- table to organize groups -->
-          <tr>
-            <td id = "group1"> <!-- a group box -->
-              <div class = "group"> <!-- using jquery, when hovered group-title is hidden and subjects shown, and vice versa -->
-                <div class = "top-content"> <!-- content displayed on top -->
-                  <span class = "group-title"> Language A </span> <!-- name of the group -->
-                </div>
-                <div class = "hidden-content"> <!-- hidden div containing the subjects, toggled with js -->
-                  <a href = "#">
-                    <div class = "subject a"> <!-- a b c d are to align the 4 subject divs in 4 corners -->
-                      <div class = "subject-title"> English L</div> <!-- name of subject -->
-                    </div>
-                  </a>
-                  <a href ="#">
-                    <div class = "subject b">
-                      <div class = "subject-title"> English LL</div> <!-- name of subject -->
-                    </div>
-                  </a>
-                  <div class = "subject c">
-                    <div class = "subject-title"> Swedish L</div> <!-- name of subject -->
-                  </div>
-                  <div class = "subject d">
-                    <div class = "subject-title"> Swedish LL</div> <!-- name of subject -->
-                  </div>
+        <h1 id = "title">Borgar IB</h1> <!-- title of the page -->
+        <div class = "row">
+          <div class = "col-lg-1"> </div>
+          <div id = "groups" class ="col-lg-10">
+            <div class = "row">
+              <div class = "col-lg-4 group-div">
+                <div class="dropdown">
+                  <button class="btn sharp dropdown-toggle" type="button" id="group1-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Language A
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a href="#">English L</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">English LL</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Swedish L</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Swedish LL</a></li>
+                  </ul>
                 </div>
               </div>
-            </td>
-            <td id = "group2">
-              <div class = "group"> <!-- using jquery, when hovered group-title is hidden and subjects shown, and vice versa -->
-                <div class = "top-content"> <!-- content displayed on top -->
-                  <span class = "group-title"> Language B </span> <!-- name of the group -->
-                </div>
-                <div class = "hidden-content"> <!-- hidden div containing the subjects, toggled with js -->
-                  <a href = "#">
-                    <div class = "subject a"> <!-- a b c d are to align the 4 subject divs in 4 corners -->
-                      <div class = "subject-title"> Swedish</div> <!-- name of subject -->
-                    </div>
-                  </a>
-                  <a href = "#">
-                    <div class = "subject b"> <!-- a b c d are to align the 4 subject divs in 4 corners -->
-                      <div class = "subject-title"> English</div> <!-- name of subject -->
-                    </div>
-                  </a>
-                  <a href = "#">
-                    <div class = "subject c"> <!-- a b c d are to align the 4 subject divs in 4 corners -->
-                      <div class = "subject-title"> Spanish</div> <!-- name of subject -->
-                    </div>
-                  </a>
-                  <a href = "#">
-                    <div class = "subject d"> <!-- a b c d are to align the 4 subject divs in 4 corners -->
-                      <div class = "subject-title"> French</div> <!-- name of subject -->
-                    </div>
-                  </a>
+              <div class = "col-lg-4 group-div">
+                <div class="dropdown">
+                  <button class="btn sharp dropdown-toggle" type="button" id="group2-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Language B
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a href="#">English</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Swedish</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">French</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Spanish</a></li>
+                  </ul>
                 </div>
               </div>
-            </td>
-            <td id = "group3">
-              <div class = "group"> <!-- using jquery, when hovered group-title is hidden and subjects shown, and vice versa -->
-                <div class = "top-content"> <!-- content displayed on top -->
-                  <span class = "group-title"> Social Sciences </span> <!-- name of the group -->
-                </div>
-                <div class = "hidden-content"> <!-- hidden div containing the subjects, toggled with js -->
-                  <a href = "#">
-                    <div class = "subject a"> <!-- a b c d are to align the 4 subject divs in 4 corners -->
-                      <div class = "subject-title"> Economics</div> <!-- name of subject -->
-                    </div>
-                  </a>
-                  <a href = "#">
-                    <div class = "subject b"> <!-- a b c d are to align the 4 subject divs in 4 corners -->
-                      <div class = "subject-title"> History</div> <!-- name of subject -->
-                    </div>
-                  </a>
-                  <a href = "#">
-                    <div class = "subject c"> <!-- a b c d are to align the 4 subject divs in 4 corners -->
-                      <div class = "subject-title"> Pyschology</div> <!-- name of subject -->
-                    </div>
-                  </a>
-                  <a href = "#">
-                    <div class = "subject d"> <!-- a b c d are to align the 4 subject divs in 4 corners -->
-                      <div class = "subject-title"> Business Management</div> <!-- name of subject -->
-                    </div>
-                  </a>
+              <div class = "col-lg-4 group-div">
+                <div class="dropdown">
+                  <button class="btn sharp dropdown-toggle" type="button" id="group3-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Social Science
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a href="#">History</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Economics</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Pyschology</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Global Politics</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Business Management</a></li>
+                  </ul>
                 </div>
               </div>
-            </td>
-          </tr>
-          <tr>
-            <td id = "group4">
-              <div class = "group"> <!-- using jquery, when hovered group-title is hidden and subjects shown, and vice versa -->
-                <div class = "top-content"> <!-- content displayed on top -->
-                  <span class = "group-title"> Natural Sciences </span> <!-- name of the group -->
-                </div>
-                <div class = "hidden-content"> <!-- hidden div containing the subjects, toggled with js -->
-                  <a href = "#">
-                    <div class = "subject a"> <!-- a b c d are to align the 4 subject divs in 4 corners -->
-                      <div class = "subject-title"> Biology</div> <!-- name of subject -->
-                    </div>
-                  </a>
-                  <a href = "#">
-                    <div class = "subject b"> <!-- a b c d are to align the 4 subject divs in 4 corners -->
-                      <div class = "subject-title"> Chemistry</div> <!-- name of subject -->
-                    </div>
-                  </a>
-                  <a href = "subjects/physics">
-                    <div class = "subject c"> <!-- a b c d are to align the 4 subject divs in 4 corners -->
-                      <div class = "subject-title"> Physics</div> <!-- name of subject -->
-                    </div>
-                  </a>
-                  <a href = "#">
-                    <div class = "subject d"> <!-- a b c d are to align the 4 subject divs in 4 corners -->
-                      <div class = "subject-title"> Environmental Systems</div> <!-- name of subject -->
-                    </div>
-                  </a>
+            </div>
+            <div class = "row">
+              <div class = "col-lg-12 spacer"></div>
+            </div>
+            <div class= "row">
+              <div class = "col-lg-4 group-div">
+                <div class="dropdown">
+                  <button class="btn sharp dropdown-toggle" type="button" id="group4-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Natural Sciences
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a href="#">Biology</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Chemistry</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Physics</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Environmental Systems</a></li>
+                  </ul>
                 </div>
               </div>
-            </td>
-            <td id = "group5">
-              <div class = "group"> <!-- using jquery, when hovered group-title is hidden and subjects shown, and vice versa -->
-                <div class = "top-content"> <!-- content displayed on top -->
-                  <span class = "group-title"> Mathematics </span> <!-- name of the group -->
-                </div>
-                <div class = "hidden-content"> <!-- hidden div containing the subjects, toggled with js -->
-                  <a href = "#">
-                    <div class = "subject w"> <!-- a b c d are to align the 4 subject divs in 4 corners -->
-                      <div class = "subject-title"> Math SL </div> <!-- name of subject -->
-                    </div>
-                  </a>
-                  <a href = "#">
-                    <div class = "subject c"> <!-- a b c d are to align the 4 subject divs in 4 corners -->
-                      <div class = "subject-title"> Math Studies SL</div> <!-- name of subject -->
-                    </div>
-                  </a>
-                  <a href = "#">
-                    <div class = "subject d"> <!-- a b c d are to align the 4 subject divs in 4 corners -->
-                      <div class = "subject-title"> Math HL</div> <!-- name of subject -->
-                    </div>
-                  </a>
-
+              <div class = "col-lg-4 group-div">
+                <div class="dropdown">
+                  <button class="btn sharp dropdown-toggle" type="button" id="group5-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Math
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a href="#">Math SL</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Math HL</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Math Studies SL</a></li>
+                  </ul>
                 </div>
               </div>
-            </td>
-            <td id = "group6">
-              <div class = "group"> <!-- using jquery, when hovered group-title is hidden and subjects shown, and vice versa -->
-                <div class = "top-content"> <!-- content displayed on top -->
-                  <span class = "group-title"> Electives </span> <!-- name of the group -->
-                </div>
-                <div class = "hidden-content"> <!-- hidden div containing the subjects, toggled with js -->
-                  <a href = "#">
-                    <div class = "subject t"> <!-- a b c d are to align the 4 subject divs in 4 corners -->
-                      <div class = "subject-title"> Theatre</div> <!-- name of subject -->
-                    </div>
-                  </a>
+              <div class = "col-lg-4 group-div">
+                <div class="dropdown">
+                  <button class="btn sharp dropdown-toggle" type="button" id="group6-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Other
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a href="#">Theatre</a></li>
+                  </ul>
                 </div>
               </div>
-            </td>
-          </tr>
-        </table>
+            </div>
+          </div>
+          <div class = "col-lg-1"> </div>
+        </div>
 		  </div>
     </div>
 	</body>

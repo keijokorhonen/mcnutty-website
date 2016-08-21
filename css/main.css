@@ -1,83 +1,51 @@
 html, body {
   background-color: white;
+  font-family:'Helvetica', sans-serif;
+  color: #202020;
   height: 100%;
   min-height: 100%;
   margin: 0px;
 
   }
-.container {
+/* Bootstrap uses class .container */
+/* .container {
   font-family:'Helvetica', sans-serif;
   height: 100%;
   width: 100%;
 
-  }
+  } * /
 
-/* header style */
 
-#header {
-  background-color: white;
-  position: absolute;
-  height: 43px;
-  left: 0px;
-  top: 0px;
-  right: 0px;
-  z-index: 6;
-  font-family:'Helvetica', sans-serif;
-  /*border-bottom: 2px solid black; */
-  }
-#menu {
+/* navbar style */
+
+
+.navbar a {
+  color: #383838;
+}
+.navbar a:hover {
+  color: #383838;
 }
 
-
-#site-title{
-  padding: 0px 30px 10px 30px;
+.navbar li {
+  padding-left:30px;
+  padding-right:30px;
 
 }
-
-.logo-box{
-  float: left;
+.brand-ib {
+  color: #4578b0;
+  font-weight: bold;
 }
 
-#logo {
-
-  height: 40px;
+.brand-borgar {
+  color:#006940;
 }
 
-
-#menu-bar {
-  margin:auto;
-  margin-top: 15px;
-  margin-bottom: 10px;
-  text-align: center;
-  font-weight: 400;
-  letter-spacing: 0.05em;
-  font-size: 1em;
-  }
-.menu-item {
-  padding: 0px 50px 0px 50px;
-  border-right: 1px solid lightgray;
-  vertical-align: bottom;
-  }
-.menu-item a:link {
-  text-decoration: none;
-  color: black;
-  }
-.menu-item a:visited {
-  color: black;
-  }
-.menu-item a:hover {
-  color: #ff3300;
-  cursor: pointer;
-  /*text-shadow: 3px 3px 4px lightgray; */
-  }
-
-.menu-home {
-}
-.menu-logo-box {
-  padding: 0px 5px 0px 5px;
-  border-right: none;
+.brand-se {
+  color: #e6e600;
 }
 
-.menu-end {
-  border-right: none;
-  }
+/* button style */
+
+.btn.sharp { /* should make buttons unique across all pages */
+  border-radius: 0;
+}

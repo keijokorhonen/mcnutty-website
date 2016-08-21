@@ -1,14 +1,16 @@
 <html>
   <head>
-    <title> IB Home </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- The width=device-width part sets the width of the page to follow the screen-width of the device (which will vary depending on the device). The initial-scale=1 part sets the initial zoom level when the page is first loaded by the browser. -->
+    <title> IB14 Schedule </title>
     <link rel="stylesheet" type="text/css" href="../css/main.css"> <!-- main stylesheet -->
-    <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300|Source+Sans+Pro' rel='stylesheet' type='text/css'> <!-- used Google Fonts to import fonts -->
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <!-- <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300|Source+Sans+Pro' rel='stylesheet' type='text/css'> --><!-- used Google Fonts to import fonts -->
+    <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'> -->
     <link rel="icon" href="../icons/calendar.svg">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"> </script> <!-- CDN jqeury source -->
     <script src="../js/schedule.js"> </script>
-    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> --> <!-- Bootstrap JS CDN -->
-    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> --><!-- Bootstrap CSS CDN -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> <!-- Bootstrap JS CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><!-- Bootstrap CSS CDN -->
     <link rel='stylesheet' href='fullcalendar/fullcalendar.css'>
     <link rel='stylesheet' href='../css/schedule.css'>
     <link rel='stylesheet' href='theme/jquery-ui.theme.css'>
@@ -70,6 +72,9 @@
 
       }
       $(document).ready(function() {
+        $('[data-toggle=offcanvas]').click(function() {
+          $('.row-offcanvas').toggleClass('active'); //sidebar shit
+        });
         $(".dropdown").hover(function() {
           $(this).children('.dropdown-content').toggleClass('show');
         });
@@ -103,8 +108,8 @@
           minTime: '08:00:00',
           maxTime: '17:00:00',
           eventLimit: true, // allow "more" link when too many events
-          aspectRatio: 2.5,
           weekNumberTitle: "Week ",
+          contentHeight:420,
           eventSources: [],
           customButtons: {
              clearAll: {
@@ -126,145 +131,49 @@
     </script>
   </head>
   <body>
-		<div class = "container">
-      <div id = "header"> <!-- page header, should be the same across all pages -->
-				<div id ="menu-bar"> <!-- could be a list -->
-          <span class="menu-item menu-home"> <a href="index.html"> Home </a> </span> <!-- also a similar mess, and should link to home -->
-					<span class="menu-item"> <a href="#"> News </a> </span> <!-- filler item -->
-					<span class="menu-item"> <a href="#"> Schedule </a> </span> <!-- filler item -->
-					<span class="menu-item menu-end"> <a href="#"> Contact </a> </span> <!-- filler item, class menu-end removes the right border used as a divider -->
-				</div>
-      </div>
-      <div id = "content">
-        <div id = "title-bar">
-          <span id ="title"> IB14 Schedule</span>
+    <div class = "page-container">
+      <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"><span class="brand-ib">ib</span>.<span class="brand-borgar">borgar</span>.<span class = "brand-se">se</span></a>
+          </div>
+          <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="../index.html">Home</a></li>
+              <li class="active"><a href="index.html">Schedule</a></li>
+              <li><a href="#">News</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
         </div>
-        <div id = "class-bar">
-          <ul>
-            <li class="dropdown">
-              <a href="javascript:void(0)" class="dropbtn">Economics</a>
-              <div class="dropdown-content">
-                <a id = "ECOhlEK" onclick="addEventSource(ECOhlEK)">HL/SL - Anna Ellmark</a>
-                <a  onclick="addEventSource(ECOhlET)">HL/SL - MYP</a>
-                <a  onclick="addEventSource(ECOhlAN)">HL/SL - Magnus Anderson</a>
-              </div>
-            </li>
-            <li class="dropdown">
-              <a href="javascript:void(0)" class="dropbtn">Psychology</a>
-              <div class="dropdown-content">
-                <a href="#" onclick="addEventSource(PSYChlHE)">HL - Iaa Hedin</a>
-                <a href="#" onclick="addEventSource(PSYCslMNP)">SL - MNP</a>
-              </div>
-            </li>
-            <li class="dropdown">
-              <a href="javascript:void(0)" class="dropbtn">History</a>
-              <div class="dropdown-content">
-                <a href="#" onclick="addEventSource(HIShlON)">HL - Sam Olofsson</a>
-                <a href="#" onclick="addEventSource(HIShlLT)">HL - Magnus L&ouml;fqvist</a>
-                <a href="#" onclick="addEventSource(HIShlANG)">HL - Anders Arnberg</a>
-              </div>
-            </li>
-            <li class="dropdown">
-              <a id="BMslEDK" href="javascript:void(0)" class="dropbtn" onclick="addEventSource(BMslEDK)">Bus. Man.</a>
-            </li>
-            <li class="dropdown">
-              <a id="GLOPOLHR" href="javascript:void(0)" class="dropbtn" onclick="addEventSource(GLOPOLHR)">Global Politics</a>
-            </li>
-            <li class="dropdown">
-              <a href="javascript:void(0)" class="dropbtn">Math</a>
-              <div class="dropdown-content">
-                <a href="#" onclick="addEventSource(MAhlCNS)">HL - Stuart Cameron</a>
-                <a href="#" onclick="addEventSource(MAslLGN)">SL - Carol Lundgren</a>
-                <a href="#" onclick="addEventSource(MAslMP)">SL - Peter Moritz</a>
-                <a href="#" onclick="addEventSource(MASTslDL)">Studies - Jonas Dahl</a>
-                <a href="#" onclick="addEventSource(MASTslKHL)">Studies- Lone Krogh</a>
-              </div>
-            </li>
-            <li class="dropdown">
-              <a href="javascript:void(0)" class="dropbtn">English</a>
-              <div class="dropdown-content">
-                <a href="#" onclick="addEventSource(ENGLhlWR)">L HL - Simon Walker</a>
-                <a href="#" onclick="addEventSource(ENGLLhlFD)">LL HL - Leslie Fleetwood</a>
-                <a href="#" onclick="addEventSource(ENGLLhlGG)">LL HL - Sarah Glendinning</a>
-                <a href="#" onclick="addEventSource(ENGLLslANM)">LL SL - Malin Andersson</a>
-                <a href="#" onclick="addEventSource(ENGBhlMM)">B HL - Helene Malmstr&ouml;m</a>
-                <a href="#" onclick="addEventSource(ENGBhlPNJ)">B HL - Jorgen Pettersson</a>
-              </div>
-            </li>
-            <li class="dropdown">
-              <a href="javascript:void(0)" class="dropbtn">Swedish</a>
-              <div class="dropdown-content">
-                <a href="#" onclick="addEventSource(SWELhlGD)">L HL - GD</a>
-                <a href="#" onclick="addEventSource(SWELLhlLTE)">LL HL - Eva Lindqvist</a>
-                <a href="#" onclick="addEventSource(SWELLslBM)">LL SL - Pernille Bj&auml;rum</a>
-                <a href="#" onclick="addEventSource(SWEBhlPNL)">HL - Linda Persson</a>
-                <a href="#" onclick="addEventSource(SWEBslPNL)">SL - Linda Persson</a>
-              </div>
-            </li>
-            <li class="dropdown">
-              <a href="javascript:void(0)" class="dropbtn">French</a>
-              <div class="dropdown-content">
-                <a href="#" onclick="addEventSource(FREBhlHK)">HL</a>
-                <a href="#" onclick="addEventSource(FREBslHK)">SL</a>
-              </div>
-            </li>
-            <li class="dropdown">
-              <a href="javascript:void(0)" class="dropbtn">Spanish</a>
-              <div class="dropdown-content">
-                <a href="#" onclick="addEventSource(SPABhlTEU)">HL</a>
-                <a href="#" onclick="addEventSource(SPABslTEU)">SL</a>
-              </div>
-            </li>
-            <li class="dropdown">
-              <a href="javascript:void(0)" class="dropbtn">Physics</a>
-              <div class="dropdown-content">
-                <a href="#" onclick="addEventSource(PHYhlFM)">HL - Kim Freimann</a>
-                <a href="#" onclick="addEventSource(PHYhlEE)">HL - Sam Edgecombe</a>
-                <a href="#" onclick="addEventSource(PHYslEE)">SL - Sam Edgecombe</a>
-
-              </div>
-            </li>
-            <li class="dropdown">
-              <a href="javascript:void(0)" class="dropbtn">Chemistry</a>
-              <div class="dropdown-content">
-                <a href="#" onclick="addEventSource(CHEMhlSM)">HL - Monica Siljestrom</a>
-                <a href="#" onclick="addEventSource(CHEMhlSCH)">HL - Ingrid Schr&ouml;der</a>
-                <a href="#" onclick="addEventSource(CHEMslJN)">SL - Britta Johansson</a>
-              </div>
-            </li>
-            <li class="dropdown">
-              <a href="javascript:void(0)" class="dropbtn">Biology</a>
-              <div class="dropdown-content">
-                <a href="#" onclick="addEventSource(BIOhlLQ)">HL - Lena Lundquist</a>
-                <a href="#" onclick="addEventSource(BIOhlBOU)">HL - Louise Boucher</a>
-                <a href="#" onclick="addEventSource(BIOslNNG)">SL - G&ouml;ran Nilsson</a>
-              </div>
-            </li>
-            <li class="dropdown">
-              <a href="javascript:void(0)" class="dropbtn">Env. Sys.</a>
-              <div class="dropdown-content">
-                <a href="#" onclick="addEventSource(ENVslSTD)">James Sutherland</a>
-                <a href="#" onclick="addEventSource(ENVslNNG)">G&ouml;ran Nilsson</a>
-              </div>
-            </li>
-
-            <li class="dropdown">
-              <a href="javascript:void(0)" class="dropbtn">TOK</a>
-              <div class="dropdown-content">
-                <a href="#" onclick="addEventSource(TOK_WR)">Simon Walker</a>
-                <a href="#" onclick="addEventSource(TOK_DL)">Jonas Dahl</a>
-                <a href="#" onclick="addEventSource(TOK_LGN)">Carol Lundgren</a>
-                <a href="#" onclick="addEventSource(TOK_EE)">Sam Edgecombe</a>
-              </div>
-            </li>
-            <li class="dropdown">
-              <a href="javascript:void(0)" class="dropbtn" onclick="addEventSource(THEAhlGG)">Theatre</a>
-            </li>
-          </ul>
-          <!-- <div class = "message">
-            <span> Pick your subjects to add them to your schedule - they will be saved </span>
-          </div> -->
-        <div id = "schedule"></div>
+      </nav>
+      <div class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+         <div class="container">
+            <div class="navbar-header">
+             <button type="button" class="navbar-toggle subject-btn" data-toggle="offcanvas" data-target=".sidebar-nav">
+               <span> Subjects</span>
+             </button>
+            </div>
+         </div>
+      </div>
+      <div id = "content" class ="container-fluid">
+        <div class="row row-offcanvas row-offcanvas-left">
+          <div class="col-xs-6 col-sm-2 sidebar-offcanvas" id="sidebar" role="navigation">
+              <ul class="nav">
+                <li> Subjects</li>
+                <li><a onClick="addEventSource(ECOhlEK)">Economics</a></li>
+                <li><a onClick="addEventSource(ECOhlEK)">Pyschology</a></li>
+                <li><a onClick="addEventSource(ECOhlEK)">History</a></li>
+              </ul>
+          </div>
+          <div id = "schedule" class = "col-xs-12 col-md-10"></div>
+        </div>
       </div>
     </div>
   </body>
