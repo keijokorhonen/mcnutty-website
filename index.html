@@ -1,153 +1,310 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
+    <!-- Bootstrap stuff -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- The width=device-width part sets the width of the page to follow the screen-width of the device (which will vary depending on the device). The initial-scale=1 part sets the initial zoom level when the page is first loaded by the browser. -->
-    <title> Borgar IB </title>
-    <link rel="stylesheet" type="text/css" href="css/main.css"> <!-- main stylesheet -->
-    <link rel="stylesheet" type="text/css" href="css/home.css"> <!-- home stylesheet -->
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> <!-- CDN Bootstrap CSS -->
-    <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300|Source+Sans+Pro' rel='stylesheet' type='text/css'> <!-- NOTE not currently in use / used Google Fonts to import fonts -->
-    <script src="js/home.js"> </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"> </script> <!-- CDN jqeury source -->
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> <!-- CDN bootstrap JS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">  <!-- The width=device-width part sets the width of the page to follow the screen-width of the device (which will vary depending on the device). The initial-scale=1 part sets the initial zoom level when the page is first loaded by the browser. -->
+
+    <!-- Text displayed on browser tab -->
+    <title> IB14 Schedule </title>
+
+    <!-- Main stylesheet, used across all pages for consisten header, button styles, etc. -->
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+
+    <!-- Google fonts sources, currently unused -->
+    <!-- <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300|Source+Sans+Pro' rel='stylesheet' type='text/css'> --><!-- used Google Fonts to import fonts -->
+    <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'> -->
+
+    <!-- 'Favicon', the small image displayed on browser tab -->
+    <link rel="icon" type="image/png" href="icons/calendar.png">
+
+    <!--  jQuery source (CDN), a Javascript library with lots of useful stuff, also needed for Bootstrap -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"> </script>
+
+    <!-- Bootstrap sources (CDN), a Javascript framework that makes mobile development a lot easier -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Schedule data file, includes times, dates, classes for subjects. File is ~5000 lines long, written by the Python script Scripts/'date_generator.py' -->
+    <script src="js/schedule_data.js"> </script>
+
+    <!-- NOTE schedule.js (contains settings and functions for schedule) is below <body> so page loads first -->
+
+    <!-- CSS file for schedule, most importantly contains style for subject sidebar -->
+    <link rel='stylesheet' href='css/schedule.css'>
+
+    <!-- jQueryUI css files, adds a particular style to the schedule and other stuff, not really sure... -->
+    <link rel='stylesheet' href='theme/jquery-ui.theme.css'>
+    <link rel='stylesheet' href='theme/jquery-ui.theme.min.css'>
+    <link rel='stylesheet' href='theme/jquery-ui.css'>
+    <link rel='stylesheet' href='theme/jquery-ui.structure.css'>
+
+    <!-- jQueryUI JS file -->
+    <script src='theme/jquery-ui.js'></script>
+
+    <!-- Home screen bookmark source images, creds to Arya -->
+    <link href="icons/Icon-180x180.png" rel="apple-touch-icon" />
+    <link href="icons/Icon-76x76.png" rel="apple-touch-icon" sizes="76x76" />
+    <link href="icons/Icon-120x120.png" rel="apple-touch-icon" sizes="120x120" />
+    <link href="icons/Icon-152x152.png" rel="apple-touch-icon" sizes="152x152" />
+    <link href="icons/Icon-180x180.png" rel="apple-touch-icon" sizes="180x180" />
+
+    <!-- JS files for FullCalendar, the JS thing the schedule is built on -->
+    <script src='fullcalendar/lib/jquery.min.js'></script>
+    <script src='fullcalendar/lib/moment.min.js'></script>
+    <script src='fullcalendar/fullcalendar.js'></script>
+
+    <!-- CSS file for FullCalendar -->
+    <link rel='stylesheet' href='fullcalendar/fullcalendar.css'>
 
   </head>
   <body>
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#"><span class="brand-ib">ib</span>.<span class="brand-borgar">borgar</span>.<span class = "brand-se">se</span></a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="schedule/index.html">Schedule</a></li>
-            <li><a href="#">News</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
-		<div class = "container">
-      <div id = "content">
-        <h1 id = "title">Borgar IB</h1> <!-- title of the page -->
-        <div class = "row">
-          <div class = "col-lg-1"> </div>
-          <div id = "groups" class ="col-lg-10">
-            <div class = "row">
-              <div class = "col-lg-4 group-div">
-                <div class="dropdown">
-                  <button class="btn sharp dropdown-toggle" type="button" id="group1-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    Language A
-                    <span class="caret"></span>
-                  </button>
-                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <li><a href="#">English L</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">English LL</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Swedish L</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Swedish LL</a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class = "col-lg-4 group-div">
-                <div class="dropdown">
-                  <button class="btn sharp dropdown-toggle" type="button" id="group2-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    Language B
-                    <span class="caret"></span>
-                  </button>
-                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <li><a href="#">English</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Swedish</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">French</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Spanish</a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class = "col-lg-4 group-div">
-                <div class="dropdown">
-                  <button class="btn sharp dropdown-toggle" type="button" id="group3-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    Social Science
-                    <span class="caret"></span>
-                  </button>
-                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <li><a href="#">History</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Economics</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Pyschology</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Global Politics</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Business Management</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class = "row">
-              <div class = "col-lg-12 spacer"></div>
-            </div>
-            <div class= "row">
-              <div class = "col-lg-4 group-div">
-                <div class="dropdown">
-                  <button class="btn sharp dropdown-toggle" type="button" id="group4-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    Natural Sciences
-                    <span class="caret"></span>
-                  </button>
-                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <li><a href="#">Biology</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Chemistry</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Physics</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Environmental Systems</a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class = "col-lg-4 group-div">
-                <div class="dropdown">
-                  <button class="btn sharp dropdown-toggle" type="button" id="group5-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    Math
-                    <span class="caret"></span>
-                  </button>
-                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <li><a href="#">Math SL</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Math HL</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Math Studies SL</a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class = "col-lg-4 group-div">
-                <div class="dropdown">
-                  <button class="btn sharp dropdown-toggle" type="button" id="group6-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    Other
-                    <span class="caret"></span>
-                  </button>
-                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <li><a href="#">Theatre</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+    <div class = "page-container">
+      <!-- Navbar at top of page, automatically collapsed with small screen thanks to Bootstrap -->
+      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+       <div class="container">
+      	<div class="navbar-header">
+            <!-- Button that toggles subject sidebar, only displayed on small screen -->
+             <button id ="sub-toggle-btn" type="button" class="navbar-toggle navbar-left" data-toggle="offcanvas" data-target=".sidebar-nav">
+               <span> Subjects </span>
+               <span class="caret"></span>
+             </button>
+             <!-- Site title -->
+             <a class="navbar-brand" href="#"><span class="brand-ib">ib</span>.<span class="brand-borgar">borgar</span>.<span class = "brand-se">se</span></a>
+      	</div>
+       </div>
+     </div>
+     <!-- Normal page content -->
+      <div id = "content" class ="container-fluid">
+        <div class="row row-offcanvas row-offcanvas-left">
+          <!-- Subject sidebar, mostly copy/pasted -->
+          <div class="col-xs-6 col-sm-2 sidebar-offcanvas" id="sidebar" role="navigation">
+              <!-- List of subjects -->
+              <ul class="nav">
+                <!-- Example subject, copy/pasted for all subjects -->
+                <li>
+                  <!-- Bootstrap button -->
+                  <div class="btn-group">
+                    <!-- Actual button -->
+                    <button type="button" class="btn btn-default dropdown-toggle class-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Economics <span class="caret"></span>
+                    </button>
+                    <!-- Dropdown list -->
+                    <ul class="dropdown-menu">
+                      <!-- Specific class, uses function addEventSource, see schedule.js -->
+                      <li><a onclick="addEventSource(ECOhlEK)">HL/SL - Anna Ellmark</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a onclick="addEventSource(ECOhlET)">HL/SL - MYP</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a onclick="addEventSource(ECOhlAN)">HL/SL - Magnus Andersson</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle class-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Psychology <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a onclick="addEventSource(PSYChlHE)">HL - Iaa Hedin</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a onclick="addEventSource(PSYCslMNP)">SL - MNP</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <div class="btn-group ">
+                    <button type="button" class="btn btn-default dropdown-toggle class-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      History <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a onclick="addEventSource(HIShlON)">HL - Sam Olofsson</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a onclick="addEventSource(HIShlLT)">HL - Magnus L&ouml;fqvist</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a onclick="addEventSource(HIShlANG)">HL - Anders Arnberg</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <div class="btn-group ">
+                    <button type="button" class="btn btn-default dropdown-toggle class-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Math <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a onclick="addEventSource(MAhlCNS)">HL - Stuart Cameron</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a onclick="addEventSource(MAslLGN)">SL - Carol Lundgren</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a onclick="addEventSource(MAslMP)">SL - Peter Moritz</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a onclick="addEventSource(MASTslDL)">Studies - Jonas Dahl</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a onclick="addEventSource(MASTslKHL)">Studies- Lone Krogh</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <div class="btn-group ">
+                    <button type="button" class="btn btn-default dropdown-toggle class-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      English <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a onclick="addEventSource(ENGLhlWR)">L HL - Simon Walker</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a onclick="addEventSource(ENGLslWR)">L SL - Simon Walker</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a onclick="addEventSource(ENGLLhlFD)">LL HL - Leslie Fleetwood</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a onclick="addEventSource(ENGLLhlGG)">LL HL - Sarah Glendinning</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a onclick="addEventSource(ENGLLslANM)">LL SL - Malin Andersson</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a onclick="addEventSource(ENGBhlMM)">B HL - Helene Malmstr&ouml;m</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a onclick="addEventSource(ENGBhlPNJ)">B HL - Jorgen Pettersson</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle class-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Swedish <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a onclick="addEventSource(SWELhlGD)">L HL - GD</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a onclick="addEventSource(SWELLhlLTE)">LL HL - Eva Lindqvist</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a onclick="addEventSource(SWELLslBM)">LL SL - Pernille Bj&auml;rum</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a onclick="addEventSource(SWEBhlPNL)">B HL - Linda Persson</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a onclick="addEventSource(SWEBslPNL)">B SL - Linda Persson</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <div class="btn-group ">
+                    <button type="button" class="btn btn-default dropdown-toggle class-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      French <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a onclick="addEventSource(FREBhlHK)">HL</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a onclick="addEventSource(FREBslHK)">SL</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <div class="btn-group ">
+                    <button type="button" class="btn btn-default dropdown-toggle class-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Spanish <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a onclick="addEventSource(SPABhlTEU)">HL</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a onclick="addEventSource(SPABslTEU)">SL</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <div class="btn-group ">
+                    <button type="button" class="btn btn-default dropdown-toggle class-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Physics <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a onclick="addEventSource(PHYhlFM)">HL - Kim Freimann</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a onclick="addEventSource(PHYhlEE)">HL - Sam Edgecombe</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a onclick="addEventSource(PHYslEE)">SL - Sam Edgecombe</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <div class="btn-group ">
+                    <button type="button" class="btn btn-default dropdown-toggle class-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Chemistry <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a onclick="addEventSource(CHEMhlSM)">HL - Monica Siljestrom</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a onclick="addEventSource(CHEMhlSCH)">HL - Ingrid Schr&ouml;der</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a onclick="addEventSource(CHEMslJN)">SL - Britta Johansson</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <div class="btn-group ">
+                    <button type="button" class="btn btn-default dropdown-toggle class-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Biology <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a onclick="addEventSource(BIOhlLQ)">HL - Lena Lundquist</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a onclick="addEventSource(BIOhlBOU)">HL - Louise Boucher</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a onclick="addEventSource(BIOslNNG)">SL - G&ouml;ran Nilsson</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <div class="btn-group ">
+                    <button type="button" class="btn btn-default dropdown-toggle class-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Environmental Systems <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a onclick="addEventSource(ENVslSTD)">James Sutherland</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a onclick="addEventSource(ENVslNNG)">G&ouml;ran Nilsson</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <div class="btn-group ">
+                    <button type="button" class="btn btn-default dropdown-toggle class-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      TOK <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a onclick="addEventSource(TOK_WR)">Simon Walker</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a onclick="addEventSource(TOK_DL)">Jonas Dahl</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a onclick="addEventSource(TOK_LGN)">Carol Lundgren</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a onclick="addEventSource(TOK_EE)">Sam Edgecombe</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <div class="btn-group ">
+                    <button type="button" class="btn btn-default class-btn" onclick="addEventSource(BMslEDK)">
+                      Business Management
+                    </button>
+                  </div>
+                </li>
+                <li>
+                  <div class="btn-group ">
+                    <button type="button" class="btn btn-default class-btn" onclick="addEventSource(GLOPOLHR)">
+                      Global Politics
+                    </button>
+                  </div>
+                </li>
+                <li>
+                  <div class="btn-group ">
+                    <button type="button" class="btn btn-default class-btn" onclick="addEventSource(THEAhlGG)">
+                      Theatre
+                    </button>
+                  </div>
+                </li>
+              </ul>
           </div>
-          <div class = "col-lg-1"> </div>
+          <div id = "schedule" class = "col-xs-12 col-md-10"></div>
         </div>
-		  </div>
+      </div>
     </div>
-	</body>
+  </body>
+  <!-- Schedule JS file, contains settings for schedule and functions for adding/removing events and cookies - AT BOTTOM SO PAGE LOADS FIRST -->
+  <script src="js/schedule.js"> </script>
 </html>

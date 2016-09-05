@@ -1,3 +1,5 @@
+/* Schedule CSS */
+
 #content {
   position: absolute;
   top: 50px;
@@ -5,149 +7,81 @@
   font-family: 'Open Sans', sans-serif;
 
 }
+
+body {
+  padding-top: 51px;
+}
+
 h2 {
   font-size: 3rem;
-}
-
-.dropdown:hover .dropdown-menu {
-display: block;
-}
-
-#title {
-  font-size: 3em;
-  font-family: 'Helvetica', sans-serif;
-  font-weight: 100;
-}
-
-#title-bar {
-  border-top: solid 1px #1C140D;
-  border-bottom: solid 1px #1C140D;
-  padding: 5px;
-  letter-spacing: 0.2em;
-
-}
-
-#class-bar {
-  position: relative;
-  width: 100%;
-  margin: auto;
-}
-
-
-.add-event:hover {
-  background-color: lightgray;
-}
-.add-event-clicked#econ{
-  background-color: rgb(102, 204, 0);
-}
-.add-event-clicked#physics{
-  background-color: rgb(255, 153, 0);
-}
-.add-event-clicked#french{
-  background-color: rgb(58, 135, 173);
 }
 
 
 #schedule {
   margin-top: 10px;
   font-family: 'Open Sans', sans-serif;
-
 }
 
 
-
-#class-bar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: 	#CBE86B;
-    border-bottom: solid 5px #F2E9E1;
-    /* box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.2); */
-
+/* Some fuckery to stop the subject toggle button staying gray */
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #f00; /* Changes regular toggle color */
+}
+.navbar-default .navbar-toggle .icon-bar:hover {
+  background-color: whitw; /* Changes toggle color on hover */
+}
+#sub-toggle-btn:focus{
+    background-color: transparent;
+}
+#sub-toggle-btn:hover{
+    background-color: transparent;
 }
 
+/* Sidebar style */
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 100px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 9;
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-}
-
-.edge {
-
-}
-.dropdown-content a:hover {
-  background-color: #f1f1f1
-}
-
-
-
-.message {
-  position: absolute;
-  top: 300px;
-  width: 100%;
-  text-align: center;
-  z-index: 8;
-}
-
-.message span{
-  font-size: 1.5em;
-  padding: 20px;
-  background-color: #F2E9E1;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-
-}
-
-.message-hidden {
-  display: none;
-}
-.show {
-  display:block;
-}
-
-.hide {
-  display: none;
-}
-
-/*sidebar style */
-.subject-btn {
-  width: 100%;
-  
-}
-body {
-  padding-top: 51px;
-}
-.text-center {
-  padding-top: 20px;
-}
-.col-xs-12 {
-  background-color: #fff;
-}
 #sidebar {
   height: 100%;
   padding-right: 0;
   padding-top: 20px;
+  z-index: 9;
 }
 #sidebar .nav {
   width: 95%;
 }
-#sidebar li {
+/* #sidebar li {
   border:0 #f2f2f2 solid;
   border-bottom-width:1px;
+} */
+
+#sidebar .dropdown-menu li {
+  cursor: pointer;
 }
 
+.navbar-toggle.navbar-left {
+  float: left;
+  margin-left: 10px;
+}
+
+/* Make all subject buttons same width */
+.subject-btn {
+  width: 100%;
+}
+
+.class-btn {
+  width: 200px;
+}
+
+
+.nav li {
+  padding: 1px;
+}
+
+#sidebar {
+  display: none;
+}
+.display {
+  display: block;
+}
 /* collapsed sidebar styles */
 @media screen and (max-width: 767px) {
   .row-offcanvas {
@@ -158,25 +92,39 @@ body {
   }
   .row-offcanvas-right
   .sidebar-offcanvas {
-    right: -41.6%;
+    right: -80%;
   }
 
   .row-offcanvas-left
   .sidebar-offcanvas {
-    left: -41.6%;
+    left: -80%;
   }
   .row-offcanvas-right.active {
-    right: 41.6%;
+    right: 80%;
   }
   .row-offcanvas-left.active {
-    left: 41.6%;
+    left: 80%;
   }
   .sidebar-offcanvas {
     position: absolute;
-    top: 0;
-    width: 41.6%;
+    top: 15px;
+    width: 80%;
   }
   #sidebar {
     padding-top:0;
+  }
+  /* event style */
+  .fc-time span {
+    font-size: 0.7em;
+  }
+  .fc-title {
+    font-size: 0.7em;
+  }
+  h2 {
+    font-size: 1.6rem;
+  }
+  .navbar-toggle{
+    margin-top: 4px;
+    margin-bottom: 4px;
   }
 }

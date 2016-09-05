@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- The width=device-width part sets the width of the page to follow the screen-width of the device (which will vary depending on the device). The initial-scale=1 part sets the initial zoom level when the page is first loaded by the browser. -->
+    <title> Borgar IB </title>
+    <link rel="stylesheet" type="text/css" href="css/main.css"> <!-- main stylesheet -->
+    <link rel="stylesheet" type="text/css" href="css/home.css"> <!-- home stylesheet -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> <!-- CDN Bootstrap CSS -->
+    <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300|Source+Sans+Pro' rel='stylesheet' type='text/css'> <!-- NOTE not currently in use / used Google Fonts to import fonts -->
+    <script src="js/home.js"> </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"> </script> <!-- CDN jqeury source -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> <!-- CDN bootstrap JS -->
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><span class="brand-ib">ib</span>.<span class="brand-borgar">borgar</span>.<span class = "brand-se">se</span></a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="schedule/index.html">Schedule</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+		<div class = "container">
+      <div id = "content">
+        <h1 id = "title">Borgar IB</h1> <!-- title of the page -->
+        <div class = "row">
+          <div class = "col-lg-1"> </div>
+          <div id = "groups" class ="col-lg-10">
+            <div class = "row">
+              <div class = "col-lg-4 group-div">
+                <div class="dropdown">
+                  <button class="btn sharp dropdown-toggle" type="button" id="group1-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Language A
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a href="#">English L</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">English LL</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Swedish L</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Swedish LL</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class = "col-lg-4 group-div">
+                <div class="dropdown">
+                  <button class="btn sharp dropdown-toggle" type="button" id="group2-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Language B
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a href="#">English</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Swedish</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">French</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Spanish</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class = "col-lg-4 group-div">
+                <div class="dropdown">
+                  <button class="btn sharp dropdown-toggle" type="button" id="group3-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Social Science
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a href="#">History</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Economics</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Pyschology</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Global Politics</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Business Management</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class = "row">
+              <div class = "col-lg-12 spacer"></div>
+            </div>
+            <div class= "row">
+              <div class = "col-lg-4 group-div">
+                <div class="dropdown">
+                  <button class="btn sharp dropdown-toggle" type="button" id="group4-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Natural Sciences
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a href="#">Biology</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Chemistry</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Physics</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Environmental Systems</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class = "col-lg-4 group-div">
+                <div class="dropdown">
+                  <button class="btn sharp dropdown-toggle" type="button" id="group5-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Math
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a href="#">Math SL</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Math HL</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Math Studies SL</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class = "col-lg-4 group-div">
+                <div class="dropdown">
+                  <button class="btn sharp dropdown-toggle" type="button" id="group6-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Other
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a href="#">Theatre</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class = "col-lg-1"> </div>
+        </div>
+		  </div>
+    </div>
+	</body>
+</html>

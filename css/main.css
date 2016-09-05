@@ -44,6 +44,12 @@ html, body {
   color: #e6e600;
 }
 
+.navbar-brand {
+
+}
+
+
+
 /* button style */
 
 .btn.sharp { /* should make buttons unique across all pages */
