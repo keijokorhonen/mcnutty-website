@@ -19,7 +19,7 @@ $(document).ready(function() { // function called on page load
     defaultView: 'agendaWeek', // weekly calendar
     slotLabelFormat: 'H:mm', // time slot time format
     slotEventOverlap: false, // event overlap
-    allDaySlot: false, // all day events above normal events, could be used for study days
+    allDaySlot: true, // all day events above normal events, could be used for study days
     weekNumbers: true,
     weekends: false,
     editable: false, // allows events to be dragged around
@@ -28,7 +28,7 @@ $(document).ready(function() { // function called on page load
     eventLimit: true, // allow "more" link when too many events -- don't actually use this
     weekNumberTitle: "W ", // text in front of week number, 'W' to fit on small mobile screens
     weekNumberCalculation: 'ISO', // how week number is calculated, ISO for local
-    contentHeight:397, // height of content in schedule, needed to hide extra area below the end time for some reason, probably related to gray bar that ludo hates
+    contentHeight:400, // height of content in schedule, needed to hide extra area below the end time for some reason, probably related to gray bar that ludo hates
     timeFormat: "H:mm", // format for time on events
     customButtons: { // custom buttons for header
        clearAll: {
