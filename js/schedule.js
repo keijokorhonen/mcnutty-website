@@ -71,6 +71,9 @@ $(document).ready(function() { // function called on page load
   for (i = 0; i < universal_events.length ; i++) {
       addEventSource(universal_events[i]);
   };
+  if(navigator.userAgent.match(/Android/i)){
+    window.scrollTo(0,1);
+  }
   // #sidebar is hidden by default, only displayed AFTER schedule is fully loaded, avoids the subjects appearing first while loading on mobile
   $('#sidebar').show();
 });
