@@ -18,17 +18,18 @@ $(document).ready(function() { // function called on page load
     theme: true, // enables jQueryUI theme
     defaultView: 'agendaWeek', // weekly calendar
     slotLabelFormat: 'H:mm', // time slot time format
+    firstDay: 6, // sets the first day of the week to Saturday, so that on the weekend the schedule skips forward to the next week (weekends are hidden)
     slotEventOverlap: false, // event overlap
     allDaySlot: true, // all day events above normal events, could be used for study days
     weekNumbers: true,
-    weekends: false,
+    weekends: false, // hides weekends
     editable: false, // allows events to be dragged around
     minTime: '08:00:00', // start time displayed
     maxTime: '17:00:00', // end time displayed
     eventLimit: true, // allow "more" link when too many events -- don't actually use this
     weekNumberTitle: "W ", // text in front of week number, 'W' to fit on small mobile screens
     weekNumberCalculation: 'ISO', // how week number is calculated, ISO for local
-    contentHeight:400, // height of content in schedule, needed to hide extra area below the end time for some reason, probably related to gray bar that ludo hates
+    contentHeight:445, // height of content in schedule, needed to hide extra area below the end time for some reason, probably related to gray bar that ludo hates
     timeFormat: "H:mm", // format for time on events
     customButtons: { // custom buttons for header
        clearAll: {
@@ -66,7 +67,10 @@ $(document).ready(function() { // function called on page load
         addEventSource(class_ids[i]);
     };
   };
-
+  // Events for everyone, universal events, are added (study days, deadlines, etc.)
+  for (i = 0; i < universal_events.length ; i++) {
+      addEventSource(universal_events[i]);
+  };
   // #sidebar is hidden by default, only displayed AFTER schedule is fully loaded, avoids the subjects appearing first while loading on mobile
   $('#sidebar').show();
 });
@@ -98,9 +102,11 @@ function getCookie(cname) {
   return "";
 }
 
-// list of class objects
+// list of class objects, stored in schedule_data.js
 var class_ids  = [  ECOhlEK ,  ECOhlET , ECOhlAN ,  PSYChlHE ,  PSYCslMNP ,  MAhlCNS ,  MAslLGN ,  MAslMP , MASTslKHL ,  MASTslDL ,  HIShlON ,  HIShlLT ,  HIShlANG ,  BMslEDK , SWEBhlPNL ,  SWEBslPNL ,  SWELLhlLTE ,  SWELLslBM ,  SWELhlGD , CHEMhlSM ,  CHEMhlSCH ,  CHEMslJN ,  GLOPOLHR , THEAhlGG ,  PHYhlFM ,  PHYhlEE , PHYslEE , ENVslNNG , ENVslSTD ,  ENGLhlWR , ENGLLhlFD ,  ENGLLhlGG ,  ENGLslWR ,  ENGBhlPNJ ,  ENGBhlMM ,  ENGLLslANM ,  BIOhlLQ ,  BIOhlBOU , BIOslNNG,  FREBhlHK , FREBslHK,  SPABhlTEU , SPABslTEU, TOK_DL , TOK_LGN ,  TOK_WR ,  TOK_EE ]
 
+// list of universal events (study days, deadlines, etc.), stored in schedule_data.js
+var universal_events = [STUDY_DAYS]
 
 // adds a whole subject as an 'event source', data in schedule_data.js -- this is actually mine :D
 var addEventSource = function(course) {
