@@ -5507,3 +5507,14 @@ var TOK_EE = {
         {title:"TOK EE D118", start:"2017-06-16 10:50:00", end:"2017-06-16 12:00:00"}
     ]
 }
+
+var STUDY_DAYS = {
+    id: "STUDY_DAYS",
+    color: "rgb(152, 230, 152)",
+    textColor: "rgba(255, 255, 255, 255)",
+    allDay: true,
+    clicked: false,
+    events: [
+        {title:"Study Day", start:"2016-09-27", end:"2016-09-28"}
+    ]
+}
