@@ -107,7 +107,7 @@ function getCookie(cname) {
 var class_ids  = [  ECOhlEK ,  ECOhlET , ECOhlAN ,  PSYChlHE ,  PSYCslMNP ,  MAhlCNS ,  MAslLGN ,  MAslMP , MASTslKHL ,  MASTslDL ,  HIShlON ,  HIShlLT ,  HIShlANG ,  BMslEDK , SWEBhlPNL ,  SWEBslPNL ,  SWELLhlLTE ,  SWELLslBM ,  SWELhlGD , CHEMhlSM ,  CHEMhlSCH ,  CHEMslJN ,  GLOPOLHR , THEAhlGG ,  PHYhlFM ,  PHYhlEE , PHYslEE , ENVslNNG , ENVslSTD ,  ENGLhlWR , ENGLLhlFD ,  ENGLLhlGG ,  ENGLslWR ,  ENGBhlPNJ ,  ENGBhlMM ,  ENGLLslANM ,  BIOhlLQ ,  BIOhlBOU , BIOslNNG,  FREBhlHK , FREBslHK,  SPABhlTEU , SPABslTEU, TOK_DL , TOK_LGN ,  TOK_WR ,  TOK_EE ]
 
 // list of universal events (study days, deadlines, etc.), stored in schedule_data.js
-var universal_events = [STUDY_DAYS]
+var universal_events = [STUDY_DAYS, DEADLINES]
 
 // adds a whole subject as an 'event source', data in schedule_data.js -- this is actually mine :D
 var addEventSource = function(course) {

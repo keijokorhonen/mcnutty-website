@@ -5526,7 +5526,7 @@ var DEADLINES = {
     allDay: true,
     clicked: false,
     events: [
-        {title:"Extended essay: Second draft", start:"2016-09-27", end:"2016-09-28"}
+        {title:"EE: Second Draft", start:"2016-10-20", end:"2016-10-21"}
   ]
 
 }
